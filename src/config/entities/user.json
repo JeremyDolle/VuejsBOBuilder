@@ -1,0 +1,71 @@
+{
+  "name": "user",
+  "url": "/user",
+  "icon": "people",
+  "api": {
+    "url": "https://jsonplaceholder.typicode.com",
+    "endpoints": {
+      "fetchAll": {
+        "url": "users"
+      },
+      "fetchOne": {
+        "url": "users/:id"
+      },
+      "create": {
+        "url": "users"
+      },
+      "update": {
+        "url": "user/:id"
+      },
+      "delete": {
+        "url": "user/:id"
+      }
+    }
+  },
+  "schema": [
+    "name",
+    "email",
+    {
+      "key": "username",
+      "type": "input",
+      "inputType": "text",
+      "label": "Pseudo",
+      "model": "username",
+      "placeholder": "Entrez un pseudo"
+    },
+    {
+      "key": "address",
+      "type": "address-input",
+      "inputType": "text",
+      "label": "Adresse",
+      "model": "address",
+      "placeholder": "Entrez votre adresse",
+      "toString": ["street", "city"]
+    },
+    {
+      "key": "phone",
+      "type": "input",
+      "inputType": "text",
+      "label": "Téléphone",
+      "model": "phone",
+      "placeholder": "Entrez votre téléphone"
+    },
+    {
+      "key": "website",
+      "type": "input",
+      "inputType": "text",
+      "label": "Site web",
+      "model": "website",
+      "placeholder": "Entrez l'url de votre site"
+    },
+    {
+      "key": "company",
+      "type": "input",
+      "inputType": "text",
+      "label": "Entreprise",
+      "model": "company",
+      "placeholder": "Selectionner une entreprise",
+      "toString": ["name"]
+    }
+  ]
+}

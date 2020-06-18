@@ -1,0 +1,52 @@
+.side-bar-menu {
+  height: 100%;
+  width: $app-sidebar-width;
+  background: linear-gradient(to bottom, $secondary 0%, $primary 100%);
+  border-radius: 0;
+  border-top-right-radius: 50px;
+  padding-top: 20px;
+  .side-bar-menu--item {
+    background-color: transparent;
+    border: none;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      color: $gray-300;
+      .side-bar-menu-item--icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 23px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .side-bar-menu-item--text {
+        width: 100%;
+        text-align: center;
+        text-transform: capitalize;
+      }
+    }
+    &:hover, &.active {
+      a {
+        text-decoration: none;
+        .side-bar-menu-item--icon {
+          background-color: $ternary;
+          color: $white;
+        }
+        .side-bar-menu-item--text {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+    &.logo {
+      margin-bottom: 50px;
+      img{
+        width: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "comment",
+  "icon": "chat",
+  "url": "/comment",
+  "api": {
+    "url": "http://localhost:3000",
+    "endpoints": {
+      "fetchAll": {
+        "url": "comments"
+      },
+      "fetchOne": {
+        "url": "comments/:id"
+      },
+      "create": {
+        "url": "comments"
+      },
+      "update": {
+        "url": "comments/:id"
+      },
+      "delete": {
+        "url": "comments/:id"
+      }
+    }
+  },
+  "schema": [
+    "name",
+    "email",
+    {
+      "key": "postId",
+      "type": "entity-select",
+      "inputType": "post",
+      "label": "postId",
+      "model": "postId",
+      "isRelation": true
+    },
+    {
+      "key": "body",
+      "type": "input",
+      "inputType": "text",
+      "label": "body",
+      "model": "body"
+    }
+  ]
+}

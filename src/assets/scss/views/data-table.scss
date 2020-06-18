@@ -1,0 +1,20 @@
+.data-table {
+  &.well .well-content {
+    height: 100px;
+  }
+  .data-table-actions {
+    display: flex;
+    .data-table-action {
+      width: 36px;
+      height: 36px;
+      padding: 10px;
+      background: linear-gradient(to bottom, $secondary 0%, $primary 100%);
+      border-radius: 50%;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+    }
+  }
+}

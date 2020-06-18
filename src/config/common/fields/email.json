@@ -1,0 +1,8 @@
+{
+  "key": "email",
+  "type": "input",
+  "inputType": "text",
+  "label": "Adresse e-mail",
+  "model": "email",
+  "placeholder": "Entrez votre adresse e-mail"
+}

@@ -1,0 +1,22 @@
+.well {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: $well-default-padding 0;
+  background-color: $white;
+  box-shadow: 0 2px 5px 2px $gray-200;
+  width: 100%;
+  .well-header, .well-content, .well-footer {
+    padding: 0 $well-default-padding;
+  }
+  .well-content {
+    flex: 1;
+  }
+  .well-header {
+    width: 100%;
+    padding: 0 $well-default-padding $well-default-padding $well-default-padding;
+    text-transform: uppercase;
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: 20px;
+  }
+}

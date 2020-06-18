@@ -1,0 +1,35 @@
+{
+  "name": "post",
+  "icon": "bookmarks",
+  "url": "/post",
+  "api": {
+    "url": "http://localhost:3000",
+    "endpoints": {
+      "fetchAll": {
+        "url": "posts"
+      },
+      "fetchOne": {
+        "url": "posts/:id"
+      },
+      "create": {
+        "url": "posts"
+      },
+      "update": {
+        "url": "posts/:id"
+      },
+      "delete": {
+        "url": "posts/:id"
+      }
+    }
+  },
+  "schema": [
+    "title",
+    {
+      "key": "body",
+      "type": "input",
+      "inputType": "text",
+      "label": "body",
+      "model": "body"
+    }
+  ]
+}
