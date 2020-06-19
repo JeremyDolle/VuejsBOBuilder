@@ -1,7 +1,7 @@
 <template>
     <well :title="entity.name" class="h-100 data-table">
         <template #header>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="data-table-header">
                 <span>{{ entity.name }}</span>
                 <b-link :to="{ name: 'DefaultCreateEntity', params: { resource: $route.params.resource } }">
                     <b-icon icon="plus-circle" class="icon ml-auto text-secondary"></b-icon>
@@ -17,7 +17,7 @@
         >
             <template #default="{data, isLoading, isError}">
                 <div v-if="isError">{{isError}}</div>
-                <b-spinner v-else-if="isLoading"/>
+                <div v-else-if="isLoading" class="w-100 text-center"><b-spinner variant="secondary"/></div>
                 <template v-else>
                     <b-table
                         sticky-header
@@ -59,7 +59,7 @@
 import { mapActions, mapState } from 'vuex'
 import EntityProvider from '@/components/EntityProvider'
 import Well from '@/components/Well'
-import TableCell from '@/components/tableCell/TableCell'
+import TableCell from '@/components/TableEntityCell'
 
 export default {
   name: 'DataTableEntity',

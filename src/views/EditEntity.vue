@@ -2,7 +2,7 @@
     <b-container :key="`edit-entity-${$route.params.resource}-${$route.params.id}`">
         <entity-provider :module="$route.params.resource" :entity="$route.params.resource" :id="$route.params.id">
             <template #default="{data, isLoading, isError}">
-                <b-spinner v-if="isLoading"/>
+                <b-spinner v-if="isLoading" variant="secondary"/>
                 <div v-else-if="isError">{{isError}}</div>
                 <entity-form-generator
                     v-else-if="data"

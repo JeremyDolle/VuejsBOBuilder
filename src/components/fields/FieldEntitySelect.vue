@@ -4,7 +4,7 @@
         :module="schema.inputType"
     >
         <template #default="{data, isLoading, isError}">
-            <b-spinner v-if="isLoading"/>
+            <b-spinner v-if="isLoading" variant="secondary"/>
             <div v-else-if="isError">{{isError}}</div>
             <template v-else>
                 <!-- If edit -->
@@ -15,7 +15,7 @@
                     :id="model[schema.key]"
                 >
                     <template #default="{data: entity, isLoading: entityLoading, isError: entityError}">
-                        <b-spinner v-if="entityLoading"/>
+                        <b-spinner v-if="entityLoading" variant="secondary"/>
                         <div v-else-if="entityError">{{entityError}}</div>
                         <multiselect
                             v-else-if="entity"

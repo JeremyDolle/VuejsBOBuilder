@@ -1148,9 +1148,11 @@ $ternary:       #8137B6 !default;
 //$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
 
 
-//CUSTOM
+////////////////////// CUSTOM /////////////////////////////////////////////
+// APP
 $app-top-bar:                         50px;
 $app-content-container-height:        calc(100vh - #{$app-top-bar} - 40px);
 $app-sidebar-width:                   80px;
 $app-container-width:                 calc(100vw - #{$app-sidebar-width});
+//WELL
 $well-default-padding:                20px;

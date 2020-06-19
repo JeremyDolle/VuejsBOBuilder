@@ -82,7 +82,7 @@ const buildMutations = (key) => {
 const buildActions = (key, apiConfig) => {
   return {
     // Get one
-    async [`fetch_${key}`] ({ commit }, id) {
+    async [`fetch_${key}`] ({ commit, dispatch }, id) {
       commit(`set_${key}_loading`, { id, bool: true })
       // API CALL
       try {
@@ -110,31 +110,46 @@ const buildActions = (key, apiConfig) => {
       }
     },
     // Create one
-    async [`create_${key}`] ({ commit }, payload) {
-      // commit(`set_${key}_loading`, { id, bool: true })
+    async [`create_${key}`] ({ commit, dispatch }, payload) {
       // API CALL(payload)
-      const url = `${apiConfig.url}/${apiConfig.endpoints.create.url}`
-      await api.post(url, payload)
-      // commit(`set_${key}_loading`, { id, bool: true })
-      // commit(`push_${key}s`, { name: 'toto' })
+      try {
+        const url = `${apiConfig.url}/${apiConfig.endpoints.create.url}`
+        await api.post(url, payload)
+        dispatch('ui/showToast', { title: 'Creation', description: 'L\'entité à été crée', variant: 'success' }, { root: true })
+      } catch (e) {
+        dispatch('ui/showToast', { title: 'Erreur', description: 'erreur pendant la création', variant: 'danger' }, { root: true })
+      }
     },
     // update one
-    async [`update_${key}`] ({ commit }, { id, payload }) {
+    async [`update_${key}`] ({ commit, dispatch }, { id, payload }) {
       commit(`set_${key}_loading`, { id, bool: true })
       // API CALL(payload)
-      const url = `${apiConfig.url}/${apiConfig.endpoints.update.url.replace(':id', id)}`
-      await api.put(url, payload)
-      commit(`set_${key}_loading`, { id, bool: false })
-      // commit(`update_${key}s`, { id: 1, name: 'tata' })
+      try {
+        const url = `${apiConfig.url}/${apiConfig.endpoints.update.url.replace(':id', id)}`
+        await api.put(url, payload)
+        commit(`set_${key}_loading`, { id, bool: false })
+        dispatch('ui/showToast', { title: 'Update', description: 'L\'entité à été mise à jour', variant: 'success' }, { root: true })
+      } catch (e) {
+        commit(`set_${key}_loading`, { id, bool: false })
+        commit(`set_${key}_error`, { id, error: 'Oh noooooooooo' })
+        dispatch('ui/showToast', { title: 'Erreur', description: 'erreur pendant la mise à jour', variant: 'danger' }, { root: true })
+      }
     },
     // delete one
-    async [`delete_${key}`] ({ commit }, { id }) {
+    async [`delete_${key}`] ({ commit, dispatch }, { id }) {
       commit(`set_${key}_loading`, { id, bool: true })
       // API CALL(payload)
-      const url = `${apiConfig.url}/${apiConfig.endpoints.delete.url.replace(':id', id)}`
-      await api.delete(url)
-      commit(`set_${key}_loading`, { id, bool: false })
-      commit(`pop_${key}s`, { id })
+      try {
+        const url = `${apiConfig.url}/${apiConfig.endpoints.delete.url.replace(':id', id)}`
+        await api.delete(url)
+        commit(`set_${key}_loading`, { id, bool: false })
+        commit(`pop_${key}s`, { id })
+        dispatch('ui/showToast', { title: 'Update', description: 'L\'entité à été supprimée', variant: 'success' }, { root: true })
+      } catch (e) {
+        commit(`set_${key}_loading`, { id, bool: false })
+        commit(`set_${key}_error`, { id, error: 'Oh noooooooooo' })
+        dispatch('ui/showToast', { title: 'Erreur', description: 'erreur pendant la suppression', variant: 'danger' }, { root: true })
+      }
     },
   }
 }

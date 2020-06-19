@@ -7,7 +7,7 @@
         :id="id"
     >
         <template #default="{data, isLoading, isError}">
-            <b-spinner v-if="isLoading"/>
+            <b-spinner v-if="isLoading" variant="secondary"/>
             <div v-else-if="isError">{{isError}}</div>
             <pre v-else style="width: 300px">{{ data }}</pre>
         </template>
@@ -18,7 +18,7 @@
 <script>
 import EntityProvider from '@/components/EntityProvider'
 export default {
-  name: 'TableCell',
+  name: 'TableEntityCell',
   components: { EntityProvider },
   props: {
     field: {

@@ -11,6 +11,7 @@ import {
   SpinnerPlugin,
   FormInputPlugin,
   ImagePlugin,
+  ToastPlugin,
 } from 'bootstrap-vue'
 
 Vue.use(ButtonPlugin)
@@ -24,3 +25,4 @@ Vue.use(LinkPlugin)
 Vue.use(SpinnerPlugin)
 Vue.use(FormInputPlugin)
 Vue.use(ImagePlugin)
+Vue.use(ToastPlugin)
