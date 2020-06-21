@@ -3,7 +3,7 @@
   "url": "/user",
   "icon": "people",
   "api": {
-    "url": "https://jsonplaceholder.typicode.com",
+    "url": "http://localhost:3000",
     "endpoints": {
       "fetchAll": {
         "url": "users"
@@ -39,8 +39,7 @@
       "inputType": "text",
       "label": "Adresse",
       "model": "address",
-      "placeholder": "Entrez votre adresse",
-      "toString": ["street", "city"]
+      "placeholder": "Entrez votre adresse"
     },
     {
       "key": "phone",
@@ -64,8 +63,7 @@
       "inputType": "text",
       "label": "Entreprise",
       "model": "company",
-      "placeholder": "Selectionner une entreprise",
-      "toString": ["name"]
+      "placeholder": "Selectionner une entreprise"
     }
   ]
 }

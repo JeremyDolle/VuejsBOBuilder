@@ -5,12 +5,12 @@
 //
 //// Color system
 //
-//$white:    #fff !default;
+$white:    #fff !default;
 $gray-100: #f8f9fa !default;
 //$gray-200: #e9ecef !default;
-//$gray-300: #dee2e6 !default;
+$gray-300: #dee2e6 !default;
 //$gray-400: #ced4da !default;
-//$gray-500: #adb5bd !default;
+$gray-500: #adb5bd !default;
 //$gray-600: #6c757d !default;
 //$gray-700: #495057 !default;
 //$gray-800: #343a40 !default;
@@ -1156,3 +1156,11 @@ $app-sidebar-width:                   80px;
 $app-container-width:                 calc(100vw - #{$app-sidebar-width});
 //WELL
 $well-default-padding:                20px;
+//REALTIME
+$realtime-color:                      $gray-500;
+//SIDEBAR
+$sidebar-radius:                      0 50px 0 0;
+$sidebar-background:                  linear-gradient(to bottom, $secondary 0%, $primary 100%);
+$sidebar-item-color:                  $gray-300;
+$sidebar-hover-bg:                    $ternary;
+$sidebar-hover-color:                 $white;

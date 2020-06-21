@@ -31,6 +31,7 @@
       "inputType": "post",
       "label": "postId",
       "model": "postId",
+      "toString": ["title"],
       "isRelation": true
     },
     {

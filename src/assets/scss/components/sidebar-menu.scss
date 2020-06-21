@@ -1,9 +1,8 @@
 .side-bar-menu {
   height: 100%;
   width: $app-sidebar-width;
-  background: linear-gradient(to bottom, $secondary 0%, $primary 100%);
-  border-radius: 0;
-  border-top-right-radius: 50px;
+  background: $sidebar-background;
+  border-radius: $sidebar-radius;
   padding-top: 20px;
   .side-bar-menu--item {
     background-color: transparent;
@@ -13,7 +12,7 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      color: $gray-300;
+      color: $sidebar-item-color;
       .side-bar-menu-item--icon {
         display: flex;
         justify-content: center;
@@ -24,7 +23,6 @@
         border-radius: 50%;
       }
       .side-bar-menu-item--text {
-        width: 100%;
         text-align: center;
         text-transform: capitalize;
       }
@@ -33,11 +31,11 @@
       a {
         text-decoration: none;
         .side-bar-menu-item--icon {
-          background-color: $ternary;
-          color: $white;
+          background-color: $sidebar-hover-bg;
+          color: $sidebar-hover-color;
         }
         .side-bar-menu-item--text {
-          color: $white;
+          color: $sidebar-hover-color;
           text-decoration: none;
         }
       }

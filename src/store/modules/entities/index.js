@@ -115,9 +115,9 @@ const buildActions = (key, apiConfig) => {
       try {
         const url = `${apiConfig.url}/${apiConfig.endpoints.create.url}`
         await api.post(url, payload)
-        dispatch('ui/showToast', { title: 'Creation', description: 'L\'entité à été crée', variant: 'success' }, { root: true })
+        dispatch('ui/showToast', { title: 'Création', description: 'L\'entité à bien été crée', variant: 'success' }, { root: true })
       } catch (e) {
-        dispatch('ui/showToast', { title: 'Erreur', description: 'erreur pendant la création', variant: 'danger' }, { root: true })
+        dispatch('ui/showToast', { title: 'Erreur', description: 'Erreur pendant la création', variant: 'danger' }, { root: true })
       }
     },
     // update one
@@ -128,11 +128,11 @@ const buildActions = (key, apiConfig) => {
         const url = `${apiConfig.url}/${apiConfig.endpoints.update.url.replace(':id', id)}`
         await api.put(url, payload)
         commit(`set_${key}_loading`, { id, bool: false })
-        dispatch('ui/showToast', { title: 'Update', description: 'L\'entité à été mise à jour', variant: 'success' }, { root: true })
+        dispatch('ui/showToast', { title: 'Mise à jour', description: 'L\'entité à bien été mise à jour', variant: 'success' }, { root: true })
       } catch (e) {
         commit(`set_${key}_loading`, { id, bool: false })
         commit(`set_${key}_error`, { id, error: 'Oh noooooooooo' })
-        dispatch('ui/showToast', { title: 'Erreur', description: 'erreur pendant la mise à jour', variant: 'danger' }, { root: true })
+        dispatch('ui/showToast', { title: 'Erreur', description: 'Erreur pendant la mise à jour', variant: 'danger' }, { root: true })
       }
     },
     // delete one
@@ -144,11 +144,11 @@ const buildActions = (key, apiConfig) => {
         await api.delete(url)
         commit(`set_${key}_loading`, { id, bool: false })
         commit(`pop_${key}s`, { id })
-        dispatch('ui/showToast', { title: 'Update', description: 'L\'entité à été supprimée', variant: 'success' }, { root: true })
+        dispatch('ui/showToast', { title: 'Suppression', description: 'L\'entité à bien été supprimée', variant: 'success' }, { root: true })
       } catch (e) {
         commit(`set_${key}_loading`, { id, bool: false })
         commit(`set_${key}_error`, { id, error: 'Oh noooooooooo' })
-        dispatch('ui/showToast', { title: 'Erreur', description: 'erreur pendant la suppression', variant: 'danger' }, { root: true })
+        dispatch('ui/showToast', { title: 'Erreur', description: 'Erreur pendant la suppression', variant: 'danger' }, { root: true })
       }
     },
   }

@@ -15,6 +15,10 @@ export default {
       required: false,
       default: null,
     },
+    convertToString: {
+      type: [Array],
+      default: null,
+    },
   },
   computed: {
     ...mapState({ state (state) { return { ...state[this.module] } } }),
@@ -24,6 +28,9 @@ export default {
       if (Object.values(data).length > 0) {
         // FetchOne
         if (this.id) {
+          if (this.convertToString) {
+            return this.buildToString(data[this.id], this.convertToString)
+          }
           data = [data[this.id]]
         } else { // FetchAll
           data = Object.values(data)
@@ -31,14 +38,14 @@ export default {
 
         return data.map(item => {
           return Object.entries(item).reduce((acc, [key, value]) => {
-            if (value && typeof value === 'object' && key !== '$status') {
-              const toStringKeys = this.getEntityFieldByName(this.module, key).toString || null
-              if (toStringKeys) {
-                return { ...acc, [key]: this.buildToString(value, toStringKeys) }
-              }
-            } else {
-              return { ...acc, [key]: value }
-            }
+            // if (value && typeof value === 'object' && key !== '$status') {
+            //   const toStringKeys = this.toString
+            //   if (toStringKeys) {
+            //     return { ...acc, [key]: this.buildToString(value, toStringKeys) }
+            //   }
+            // } else {
+            return { ...acc, [key]: value }
+            // }
           }, {})
         })
       }
