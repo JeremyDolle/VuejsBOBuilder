@@ -76,8 +76,27 @@ export default {
   methods: {
     ...mapActions({
       async deleteEntity (dispatch, id) {
-        const { resource } = this.$route.params
-        await dispatch(`${resource}/delete_${resource}`, { id })
+        this.$bvModal.msgBoxConfirm('Etes-vous certain de vouloir supprimer cette ligne ? Un fois supprimé, elle se pourra plus etre récupérée.', {
+          title: 'Confimez-vous la suppression ?',
+          cancelVariant: 'default',
+          okTitle: 'Supprimer',
+          cancelTitle: 'Annuler',
+          hideHeaderClose: true,
+          centered: true,
+          headerClass: 'border-0 d-flex justify-content-center',
+          bodyClass: 'text-center',
+          footerClass: 'border-0',
+        })
+          .then(value => {
+            if (value) {
+              const { resource } = this.$route.params
+              dispatch(`${resource}/delete_${resource}`, { id })
+            }
+          })
+          .catch(err => {
+            console.error(err)
+            // An error occurred
+          })
       },
     }),
   },
