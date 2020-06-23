@@ -6,14 +6,14 @@
     />
     <well title="Bienvenue sur votre BackOffice">
       <b-input
+        v-model="form.email"
         placeholder="email"
         class="mb-3"
-        v-model="form.email"
       />
       <b-input
+        v-model="form.password"
         placeholder="mot de passe"
         class="mb-3"
-        v-model="form.password"
         type="password"
       />
       <b-button @click="submit">

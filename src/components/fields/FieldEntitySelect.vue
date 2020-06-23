@@ -15,9 +15,9 @@
         <!-- If edit -->
         <entity-provider
           v-if="model[schema.key]"
+          :id="model[schema.key]"
           :entity="schema.inputType"
           :module="schema.inputType"
-          :id="model[schema.key]"
         >
           <template #default="{data: entity, isLoading: entityLoading, isError: entityError}">
             <b-spinner

@@ -1,9 +1,9 @@
 <template>
   <b-container :key="`edit-entity-${$route.params.resource}-${$route.params.id}`">
     <entity-provider
+      :id="$route.params.id"
       :module="$route.params.resource"
       :entity="$route.params.resource"
-      :id="$route.params.id"
     >
       <template #default="{data, isLoading, isError}">
         <b-spinner

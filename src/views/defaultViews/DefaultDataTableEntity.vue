@@ -5,6 +5,8 @@
   >
     <template #header>
       <div class="data-table-header">
+        <slot name="data-table--well-header-prepend" />
+
         <slot
           name="data-table--well-header"
           v-bind="slotDataTableWellHeader"
@@ -17,6 +19,8 @@
             />
           </b-link>
         </slot>
+
+        <slot name="data-table--well-header-append" />
       </div>
     </template>
 
@@ -26,7 +30,7 @@
       :entity="entity.name"
       :module="entity.name"
     >
-      <template #default="{data, isLoading, isError}">
+      <template #default="{data: entities, isLoading, isError}">
         <div v-if="isError">
           {{ isError }}
         </div>
@@ -39,8 +43,8 @@
         <template v-else>
           <slot>
             <b-table
-              sticky-header
-              :items="data"
+              :sticky-header="true"
+              :items="entities"
               :fields="[...entity.schema.map(field => field.key), 'actions']"
               class="h-100"
             >

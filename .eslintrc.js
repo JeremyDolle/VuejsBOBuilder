@@ -5,8 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/essential',
-    'plugin:vue/strongly-recommended',
+    'plugin:vue/recommended',
     'standard',
   ],
   globals: {
@@ -23,5 +22,6 @@ module.exports = {
   ],
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
+    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
   },
 }

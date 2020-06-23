@@ -4,9 +4,9 @@
       <b-toast
         :key="toast.key"
         :header-class="`toast-header-${toast.variant}`"
-        @hidden="popToast(toast.key)"
         visible
         show
+        @hidden="popToast(toast.key)"
       >
         <template #toast-title>
           <b-icon

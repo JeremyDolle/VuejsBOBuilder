@@ -14,7 +14,7 @@ import EntityFormGenerator from '@/components/EntityFormGenerator'
 
 export default {
   name: 'DefaultEditEntity',
-  mixins: [DefaultCreateEntityMixin],
   components: { EntityFormGenerator },
+  mixins: [DefaultCreateEntityMixin],
 }
 </script>

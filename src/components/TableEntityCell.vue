@@ -1,11 +1,11 @@
 <template>
   <entity-provider
-    :key="id"
     v-if="isRelation"
+    :id="id"
+    :key="id"
     :module="resource.inputType"
     :entity="resource.inputType"
     :convert-to-string="resource.toString"
-    :id="id"
   >
     <template #default="{data, isLoading, isError}">
       <b-spinner

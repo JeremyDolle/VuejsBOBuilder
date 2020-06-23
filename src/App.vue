@@ -1,15 +1,17 @@
 <template>
   <div class="h-100">
     <!-- TODO: faire un composant de loading générale -->
-    <div v-if="loading" class="d-flex flex-column align-items-center justify-content-center h-100">
+    <div
+      v-if="loading"
+      class="d-flex flex-column align-items-center justify-content-center h-100"
+    >
       <small>Chargement de l'application et de ses modules</small>
-      <b-spinner variant="secondary"/>
+      <b-spinner variant="secondary" />
     </div>
 
     <template v-else>
-      <component :is="!isConnected ? 'AnonymousTemplate' : 'ConnectedTemplate'"/>
+      <component :is="!isConnected ? 'AnonymousTemplate' : 'ConnectedTemplate'" />
     </template>
-
   </div>
 </template>
 
@@ -27,9 +29,6 @@ export default {
       loading: true,
     }
   },
-  methods: {
-    ...mapActions('config', ['registerApplication']),
-  },
   computed: {
     ...mapState('config', ['entities']),
     ...mapGetters('auth', ['isConnected']),
@@ -44,6 +43,9 @@ export default {
       )
     })
     this.loading = false
+  },
+  methods: {
+    ...mapActions('config', ['registerApplication']),
   },
 }
 </script>
