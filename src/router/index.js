@@ -23,17 +23,17 @@ const routes = [
   },
   {
     path: '/:resource/list',
-    name: 'DefaultDataTableEntity',
+    name: 'DataTableEntity',
     component: DataTableEntity,
   },
   {
     path: '/:resource/edit/:id',
-    name: 'DefaultEditEntity',
+    name: 'EditEntity',
     component: EditEntity,
   },
   {
     path: '/:resource/create',
-    name: 'DefaultCreateEntity',
+    name: 'CreateEntity',
     component: CreateEntity,
   },
   // ADD Route above

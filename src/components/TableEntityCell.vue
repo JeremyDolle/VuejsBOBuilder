@@ -1,19 +1,31 @@
 <template>
-    <entity-provider
-        :key="id"
-        v-if="isRelation"
-        :module="resource.inputType"
-        :entity="resource.inputType"
-        :convert-to-string="resource.toString"
-        :id="id"
-    >
-        <template #default="{data, isLoading, isError}">
-            <b-spinner v-if="isLoading" variant="secondary"/>
-            <div v-else-if="isError">{{isError}}</div>
-            <div v-else style="width: 300px">{{ data }}</div>
-        </template>
-    </entity-provider>
-    <div v-else>{{field.value}}</div>
+  <entity-provider
+    :key="id"
+    v-if="isRelation"
+    :module="resource.inputType"
+    :entity="resource.inputType"
+    :convert-to-string="resource.toString"
+    :id="id"
+  >
+    <template #default="{data, isLoading, isError}">
+      <b-spinner
+        v-if="isLoading"
+        variant="secondary"
+      />
+      <div v-else-if="isError">
+        {{ isError }}
+      </div>
+      <div
+        v-else
+        style="width: 300px"
+      >
+        {{ data }}
+      </div>
+    </template>
+  </entity-provider>
+  <div v-else>
+    {{ field.value }}
+  </div>
 </template>
 
 <script>

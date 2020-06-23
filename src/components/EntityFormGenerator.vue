@@ -1,14 +1,14 @@
 <template>
-    <well :title="title">
-        <vue-form-generator
-            :schema="{fields: fields}"
-            :model="model"
-            :options="formOptions"
-        />
-        <b-button @click.prevent="$emit('submit', model)">
-            APPLY
-        </b-button>
-    </well>
+  <well :title="title">
+    <vue-form-generator
+      :schema="{fields: fields}"
+      :model="model"
+      :options="formOptions"
+    />
+    <b-button @click.prevent="$emit('submit', model)">
+      APPLY
+    </b-button>
+  </well>
 </template>
 
 <script>

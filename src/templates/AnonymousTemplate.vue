@@ -1,7 +1,10 @@
 <template>
-    <div id="app" class="h-100">
-        <router-view />
-    </div>
+  <div
+    id="app"
+    class="h-100"
+  >
+    <router-view />
+  </div>
 </template>
 
 <script>

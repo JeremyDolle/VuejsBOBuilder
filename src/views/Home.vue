@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    HELLO
+  <div class="home h-100 d-flex justify-content-center align-items-center">
+    HOME PAGE
   </div>
 </template>
 

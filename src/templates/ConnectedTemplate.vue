@@ -1,16 +1,19 @@
 <template>
-    <div id="app" class="h-100">
-        <sidebar-menu/>
-        <div class="app-container">
-            <div class="w-100 text-left app-top-bar">
-                <realtime/>
-            </div>
-            <div class="app-content-container">
-                <app-toasts/>
-                <router-view />
-            </div>
-        </div>
+  <div
+    id="app"
+    class="h-100"
+  >
+    <sidebar-menu />
+    <div class="app-container">
+      <div class="w-100 text-left app-top-bar">
+        <realtime />
+      </div>
+      <div class="app-content-container">
+        <app-toasts />
+        <router-view />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>

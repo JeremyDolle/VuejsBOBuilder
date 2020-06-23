@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <input type="text">
-        <input type="text">
-        <input type="text">
-    </div>
+  <div>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+  </div>
 </template>
 
 <script>
