@@ -36,10 +36,10 @@
     },
     {
       "key": "body",
-      "type": "input",
-      "inputType": "text",
+      "type": "textArea",
       "label": "body",
-      "model": "body"
+      "model": "body",
+      "placeholder": "Entrer un corps de message"
     }
   ]
 }

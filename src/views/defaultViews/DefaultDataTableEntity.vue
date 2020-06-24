@@ -41,7 +41,8 @@
           <b-spinner variant="secondary" />
         </div>
         <template v-else>
-          <slot>
+          <slot name="data-table-default-prepend" />
+          <slot v-bind="{ entities }">
             <b-table
               :sticky-header="true"
               :items="entities"
@@ -77,6 +78,7 @@
               </template>
             </b-table>
           </slot>
+          <slot name="data-table-default-append" />
         </template>
       </template>
     </entity-provider>

@@ -6,7 +6,7 @@ import navigationGuards from './navigationGuards'
 import DataTableEntity from '@/views/DataTableEntity'
 import EditEntity from '@/views/EditEntity'
 import CreateEntity from '@/views/CreateEntity'
-import NotFound from '@/views/404'
+import NotFound from '@/views/NotFound'
 
 Vue.use(VueRouter)
 
@@ -39,7 +39,7 @@ const routes = [
   // ADD Route above
   {
     path: '/*',
-    name: '404',
+    name: 'NotFound',
     component: NotFound,
   },
 ]

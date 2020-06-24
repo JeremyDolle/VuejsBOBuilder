@@ -15,10 +15,10 @@
         "url": "users"
       },
       "update": {
-        "url": "user/:id"
+        "url": "users/:id"
       },
       "delete": {
-        "url": "user/:id"
+        "url": "users/:id"
       }
     }
   },
@@ -34,17 +34,8 @@
       "placeholder": "Entrez un pseudo"
     },
     {
-      "key": "address",
-      "type": "address-input",
-      "inputType": "text",
-      "label": "Adresse",
-      "model": "address",
-      "placeholder": "Entrez votre adresse"
-    },
-    {
       "key": "phone",
-      "type": "input",
-      "inputType": "text",
+      "type": "phone-input",
       "label": "Téléphone",
       "model": "phone",
       "placeholder": "Entrez votre téléphone"
@@ -56,14 +47,6 @@
       "label": "Site web",
       "model": "website",
       "placeholder": "Entrez l'url de votre site"
-    },
-    {
-      "key": "company",
-      "type": "input",
-      "inputType": "text",
-      "label": "Entreprise",
-      "model": "company",
-      "placeholder": "Selectionner une entreprise"
     }
   ]
 }
