@@ -2,26 +2,6 @@
   "name": "comment",
   "icon": "chat",
   "url": "/comment",
-  "api": {
-    "url": "http://localhost:3000",
-    "endpoints": {
-      "fetchAll": {
-        "url": "comments"
-      },
-      "fetchOne": {
-        "url": "comments/:id"
-      },
-      "create": {
-        "url": "comments"
-      },
-      "update": {
-        "url": "comments/:id"
-      },
-      "delete": {
-        "url": "comments/:id"
-      }
-    }
-  },
   "schema": [
     "name",
     "email",

@@ -2,26 +2,6 @@
   "name": "user",
   "url": "/user",
   "icon": "people",
-  "api": {
-    "url": "http://localhost:3000",
-    "endpoints": {
-      "fetchAll": {
-        "url": "users"
-      },
-      "fetchOne": {
-        "url": "users/:id"
-      },
-      "create": {
-        "url": "users"
-      },
-      "update": {
-        "url": "users/:id"
-      },
-      "delete": {
-        "url": "users/:id"
-      }
-    }
-  },
   "schema": [
     "name",
     "email",
