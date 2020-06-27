@@ -1,6 +1,5 @@
 <template>
   <div class="h-100">
-    <!-- TODO: faire un composant de loading générale -->
     <div
       v-if="loading"
       class="d-flex flex-column align-items-center justify-content-center h-100"
@@ -51,8 +50,8 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "assets/scss/_variables.scss"
+  @import 'assets/scss/_variables.scss'
   @import '~bootstrap/scss/bootstrap.scss'
   @import '~bootstrap-vue/src/index.scss'
-  @import "assets/scss/index.scss"
+  @import 'assets/scss/index.scss'
 </style>

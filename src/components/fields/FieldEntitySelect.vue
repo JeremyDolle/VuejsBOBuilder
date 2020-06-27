@@ -36,6 +36,7 @@
               placeholder="Select one"
               :options="data"
               :allow-empty="false"
+              v-bind="schema"
               @input="updateModelValue($event.id)"
             />
           </template>

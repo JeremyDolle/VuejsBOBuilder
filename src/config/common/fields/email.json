@@ -4,5 +4,7 @@
   "inputType": "email",
   "label": "Adresse e-mail",
   "model": "email",
-  "placeholder": "Entrez votre adresse e-mail"
+  "required": true,
+  "placeholder": "Entrez votre adresse e-mail",
+  "validator": ["email"]
 }

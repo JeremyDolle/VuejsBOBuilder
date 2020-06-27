@@ -1,13 +1,19 @@
 <template>
   <well :title="title">
-    <vue-form-generator
-      :schema="{fields: fields}"
-      :model="model"
-      :options="formOptions"
-    />
-    <b-button @click.prevent="$emit('submit', model)">
-      APPLY
-    </b-button>
+    <form @submit.prevent.stop="$emit('submit', model)">
+      <vue-form-generator
+        :schema="{fields: fields}"
+        :model="model"
+        :options="formOptions"
+        @validated="onValidated"
+      />
+      <b-button
+        type="submit"
+        :disabled="!submitEnable"
+      >
+        VALIDER
+      </b-button>
+    </form>
   </well>
 </template>
 
@@ -34,14 +40,20 @@ export default {
     return {
       model: {},
       formOptions: {
-        // validateAfterLoad: true,
-        // validateAfterChanged: true,
-        // validateAsync: true,
+        validateAfterLoad: true,
+        validateAfterChanged: true,
+        validateAsync: true,
       },
+      submitEnable: false,
     }
   },
   mounted () {
     this.model = this.entity
+  },
+  methods: {
+    onValidated (isValid /* , errors */) {
+      this.submitEnable = isValid
+    },
   },
 }
 </script>
