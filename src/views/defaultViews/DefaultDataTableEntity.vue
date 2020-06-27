@@ -23,6 +23,7 @@
         <slot name="data-table--well-header-append" />
       </div>
     </template>
+    <slot name="data-table-default-prepend" />
 
     <entity-provider
       v-if="entity"
@@ -41,7 +42,6 @@
           <b-spinner variant="secondary" />
         </div>
         <template v-else>
-          <slot name="data-table-default-prepend" />
           <slot v-bind="{ entities }">
             <b-table
               :sticky-header="true"
@@ -78,10 +78,10 @@
               </template>
             </b-table>
           </slot>
-          <slot name="data-table-default-append" />
         </template>
       </template>
     </entity-provider>
+    <slot name="data-table-default-append" />
   </well>
 </template>
 

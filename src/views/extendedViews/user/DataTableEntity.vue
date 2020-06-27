@@ -1,14 +1,7 @@
 <template>
   <default-data-table-entity>
-    <template #data-table--well-header="{title}">
-      <div>
-        {{ title }} - Liste
-      </div>
-    </template>
-    <template #default="{entities}">
-      <div class="h-100 overflow-auto">
-        <pre>{{ entities }}</pre>
-      </div>
+    <template #data-table-default-prepend>
+      <div>AHHHHHHH</div>
     </template>
   </default-data-table-entity>
 </template>
