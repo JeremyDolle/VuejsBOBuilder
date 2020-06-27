@@ -16,7 +16,7 @@ export default async function (resource, api) {
         url: `${resource}s/:id`,
       },
       delete: {
-        url: `${resource}/:id`,
+        url: `${resource}s/:id`,
       },
     }
 
