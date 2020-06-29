@@ -2,7 +2,7 @@
   <div class="login">
     <b-img-lazy
       class="logo"
-      :src="require('@/assets/images/logo_colored.png')"
+      :src="coloredLogo"
     />
     <well title="Bienvenue sur votre BackOffice">
       <b-input
@@ -25,11 +25,11 @@
 
 <script>
 import Well from '@/components/Well'
-import { AuthMixin } from '@/mixins'
+import { AuthMixin, SettingsMixin } from '@/mixins'
 
 export default {
   name: 'Login',
   components: { Well },
-  mixins: [AuthMixin],
+  mixins: [AuthMixin, SettingsMixin],
 }
 </script>

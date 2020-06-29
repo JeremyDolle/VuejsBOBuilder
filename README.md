@@ -65,7 +65,7 @@ So for example, for the comment entity :
       "inputType": "post",
       "label": "postId",
       "model": "postId",
-      "toString": ["title"],
+      "convertToString": ["title"],
       "isRelation": true
     },
     {

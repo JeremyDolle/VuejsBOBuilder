@@ -1,5 +1,6 @@
 {
   "name": "user",
+  "label": "Utilisateurs",
   "url": "/user",
   "icon": "people",
   "schema": [

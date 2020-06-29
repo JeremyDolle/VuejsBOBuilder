@@ -1,5 +1,6 @@
 {
   "name": "post",
+  "label": "Articles",
   "icon": "bookmarks",
   "url": "/post",
   "schema": [

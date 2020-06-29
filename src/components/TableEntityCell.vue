@@ -5,7 +5,7 @@
     :key="id"
     :module="resource.inputType"
     :entity="resource.inputType"
-    :convert-to-string="resource.toString"
+    :convert-to-string="resource.convertToString"
   >
     <template #default="{data, isLoading, isError}">
       <b-spinner

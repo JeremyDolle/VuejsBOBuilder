@@ -2,7 +2,10 @@
   <b-list-group class="side-bar-menu">
     <b-list-group-item class="side-bar-menu--item logo">
       <router-link to="/">
-        <b-img-lazy :src="require('@/assets/images/logo_white.png')" />
+        <b-img-lazy :src="lightLogo" />
+        <small class="side-bar-menu-item--text">
+          {{ applicationName }}
+        </small>
       </router-link>
     </b-list-group-item>
 
@@ -15,7 +18,7 @@
           />
         </div>
         <small class="side-bar-menu-item--text">
-          Main
+          Acceuil
         </small>
       </router-link>
     </b-list-group-item>
@@ -33,7 +36,7 @@
           />
         </div>
         <small class="side-bar-menu-item--text">
-          {{ entity.name }}
+          {{ entity.label }}
         </small>
       </router-link>
     </b-list-group-item>
@@ -51,9 +54,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import { SettingsMixin } from '@/mixins'
 
 export default {
   name: 'SidebarMenu',
+  mixins: [SettingsMixin],
   computed: {
     ...mapState('config', ['entities']),
     resource () {

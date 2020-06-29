@@ -1,5 +1,6 @@
 {
   "name": "comment",
+  "label": "Reactions",
   "icon": "chat",
   "url": "/comment",
   "schema": [
@@ -11,13 +12,10 @@
       "inputType": "post",
       "label": "postId",
       "model": "postId",
-      "toString": ["title"],
+      "convertToString": ["title"],
       "isRelation": true,
       "required": true,
-      "validator": "required",
-      "selectOptions": {
-        "searchable": false
-      }
+      "validator": "required"
     },
     {
       "key": "body",
