@@ -1,8 +1,5 @@
 <template>
-  <well
-    :title="entity.name"
-    class="h-100 data-table"
-  >
+  <well class="h-100 data-table">
     <template #header>
       <div class="data-table-header">
         <slot name="data-table--well-header-prepend" />
@@ -11,7 +8,7 @@
           name="data-table--well-header"
           v-bind="slotDataTableWellHeader"
         >
-          <span>{{ entity.name }}</span>
+          <span>{{ entity.label }} - Liste</span>
           <b-link :to="{ name: 'CreateEntity', params: { resource: $route.params.resource } }">
             <b-icon
               icon="plus-circle"

@@ -11,5 +11,5 @@ Vue.component('field-address-input', FieldAddressInput)
 Vue.component('field-entity-select', FieldEntitySelect)
 Vue.component('field-phone-input', FieldPhoneInput)
 
-Vue.use(VueFormGenerator)
 Vue.use(VueTelInput)
+Vue.use(VueFormGenerator)

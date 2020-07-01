@@ -2,6 +2,7 @@
   <well :title="title">
     <form @submit.prevent.stop="$emit('submit', model)">
       <vue-form-generator
+        v-if="model"
         :schema="{fields: fields}"
         :model="model"
         :options="formOptions"
@@ -38,7 +39,7 @@ export default {
   },
   data () {
     return {
-      model: {},
+      model: null,
       formOptions: {
         validateAfterLoad: true,
         validateAfterChanged: true,

@@ -2,7 +2,7 @@
   <b-container :key="`edit-entity-${$route.params.resource}-${$route.params.id}`">
     <entity-form-generator
       :fields="entity.schema"
-      title="Formulaire de creation"
+      :title="`${entity.label} - Formulaire de creation`"
       @submit="createEntity"
     />
   </b-container>
