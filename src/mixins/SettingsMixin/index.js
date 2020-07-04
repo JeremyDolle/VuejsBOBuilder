@@ -17,5 +17,8 @@ export default {
     darkLogo () {
       return require(`@/assets/images/${this.applicationLogos.dark}`)
     },
+    notFoundLogo () {
+      return require(`@/assets/images/${this.applicationLogos.notFound}`)
+    },
   },
 }

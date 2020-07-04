@@ -15,10 +15,7 @@
       <div v-else-if="isError">
         {{ isError }}
       </div>
-      <div
-        v-else
-        style="width: 300px"
-      >
+      <div v-else>
         {{ data }}
       </div>
     </template>

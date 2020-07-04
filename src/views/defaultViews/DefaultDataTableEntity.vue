@@ -47,6 +47,7 @@
                 :items="entities"
                 :fields="[...entity.schema.map(field => field.key), 'actions']"
                 class="h-100"
+                responsive
                 hover
               >
                 <template #cell()="data">
@@ -59,19 +60,19 @@
                 <template #cell(actions)="data">
                   <div class="data-table-actions">
                     <b-link
+                      v-b-tooltip.hover="'Edit'"
                       class="data-table-action"
                       :to="{
                         name: 'EditEntity',
                         params: { resource: $route.params.resource, id: data.item.id }
                       }"
-                      v-b-tooltip.hover="'Edit'"
                     >
                       <b-icon icon="pencil" />
                     </b-link>
                     <b-link
+                      v-b-tooltip.hover="'Supprimer'"
                       class="data-table-action"
                       href="#"
-                      v-b-tooltip.hover="'Supprimer'"
                       @click.prevent="() => deleteEntity(data.item.id)"
                     >
                       <b-icon icon="trash" />
