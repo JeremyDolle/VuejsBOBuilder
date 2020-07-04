@@ -8,6 +8,9 @@ const buildState = (key) => {
         loading: false,
         error: null,
       },
+      total: 0,
+      page: 1,
+      limit: 10,
     },
   }
 }
@@ -23,9 +26,10 @@ const buildMutations = (key) => {
         },
       }
     },
-    [`set_${key}s`] (state, entities) {
+    [`set_${key}s`] (state, { data, total, page }) {
+      console.log(total, 'oh')
       state[`${key}s`] = {
-        entities: entities.reduce((acc, entity) => ({
+        entities: data.reduce((acc, entity) => ({
           ...acc,
           [entity.id]: {
             ...entity,
@@ -39,6 +43,8 @@ const buildMutations = (key) => {
           loading: false,
           error: null,
         },
+        total,
+        page,
       }
     },
     [`pop_${key}s`] (state, entity) {
@@ -96,14 +102,13 @@ const buildActions = (key, apiConfig) => {
       }
     },
     // Get all
-    async [`fetch_${key}s`] ({ commit }) {
+    async [`fetch_${key}s`] ({ commit }, { page = 1 }) {
       commit(`set_${key}s_loading`, true)
       // // API CALL
       try {
-        const url = `${apiConfig.url}/${apiConfig.endpoints.fetchAll.url}`
-        const { data } = await api.get(url)
-        // commit(`set_${key}s_loading`, false)
-        commit(`set_${key}s`, data)
+        const url = `${apiConfig.url}/${apiConfig.endpoints.fetchAll.url}?_page=${page}`
+        const { data, headers: { 'x-total-count': total } } = await api.get(url)
+        commit(`set_${key}s`, { data, total, page })
       } catch (e) {
         commit(`set_${key}s_loading`, false)
         commit(`set_${key}s_error`, 'Oh noooooooooo')

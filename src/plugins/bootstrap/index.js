@@ -13,6 +13,8 @@ import {
   ImagePlugin,
   ToastPlugin,
   ModalPlugin,
+  PaginationPlugin,
+  VBTooltipPlugin,
 } from 'bootstrap-vue'
 
 Vue.use(ButtonPlugin)
@@ -28,3 +30,5 @@ Vue.use(FormInputPlugin)
 Vue.use(ImagePlugin)
 Vue.use(ToastPlugin)
 Vue.use(ModalPlugin)
+Vue.use(PaginationPlugin)
+Vue.use(VBTooltipPlugin)

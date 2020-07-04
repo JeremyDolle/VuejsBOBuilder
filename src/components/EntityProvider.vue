@@ -9,6 +9,7 @@ export default {
       data: this.data,
       isLoading: this.isLoading,
       isError: this.isError,
+      total: this.total,
     })
   },
 }

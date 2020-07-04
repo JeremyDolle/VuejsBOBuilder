@@ -19,6 +19,15 @@ export default {
       type: [Array],
       default: null,
     },
+    page: {
+      type: Number,
+      default: 1,
+    },
+  },
+  watch: {
+    page () {
+      this.fetch()
+    },
   },
   computed: {
     ...mapState({ state (state) { return { ...state[this.module] } } }),
@@ -67,6 +76,10 @@ export default {
       }
       return error
     },
+    total () {
+      console.log(this.state[`${this.entity}s`])
+      return this.state[`${this.entity}s`].total
+    },
   },
   methods: {
     ...mapActions({
@@ -74,7 +87,7 @@ export default {
         if (this.id) {
           return dispatch(`${this.module}/fetch_${this.entity}`, this.id)
         }
-        return dispatch(`${this.module}/fetch_${this.entity}s`)
+        return dispatch(`${this.module}/fetch_${this.entity}s`, { page: this.page })
       },
     }),
     buildToString (item, keys) {

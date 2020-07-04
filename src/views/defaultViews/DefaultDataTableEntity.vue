@@ -27,8 +27,9 @@
       :key="entity.name"
       :entity="entity.name"
       :module="entity.name"
+      :page="page"
     >
-      <template #default="{data: entities, isLoading, isError}">
+      <template #default="{data: entities, isLoading, isError, total}">
         <div v-if="isError">
           {{ isError }}
         </div>
@@ -40,40 +41,52 @@
         </div>
         <template v-else>
           <slot v-bind="{ entities }">
-            <b-table
-              :sticky-header="true"
-              :items="entities"
-              :fields="[...entity.schema.map(field => field.key), 'actions']"
-              class="h-100"
-            >
-              <template #cell()="data">
-                <table-cell
-                  :key="data.item.id"
-                  :schema="entity.schema"
-                  :field="data"
-                />
-              </template>
-              <template #cell(actions)="data">
-                <div class="data-table-actions">
-                  <b-link
-                    class="data-table-action"
-                    :to="{
-                      name: 'EditEntity',
-                      params: { resource: $route.params.resource, id: data.item.id }
-                    }"
-                  >
-                    <b-icon icon="pencil" />
-                  </b-link>
-                  <b-link
-                    class="data-table-action"
-                    href="#"
-                    @click.prevent="() => deleteEntity(data.item.id)"
-                  >
-                    <b-icon icon="trash" />
-                  </b-link>
-                </div>
-              </template>
-            </b-table>
+            <div class="b-table-sticky-header h-100">
+              <b-table
+                :sticky-header="true"
+                :items="entities"
+                :fields="[...entity.schema.map(field => field.key), 'actions']"
+                class="h-100"
+                hover
+              >
+                <template #cell()="data">
+                  <table-cell
+                    :key="data.item.id"
+                    :schema="entity.schema"
+                    :field="data"
+                  />
+                </template>
+                <template #cell(actions)="data">
+                  <div class="data-table-actions">
+                    <b-link
+                      class="data-table-action"
+                      :to="{
+                        name: 'EditEntity',
+                        params: { resource: $route.params.resource, id: data.item.id }
+                      }"
+                      v-b-tooltip.hover="'Edit'"
+                    >
+                      <b-icon icon="pencil" />
+                    </b-link>
+                    <b-link
+                      class="data-table-action"
+                      href="#"
+                      v-b-tooltip.hover="'Supprimer'"
+                      @click.prevent="() => deleteEntity(data.item.id)"
+                    >
+                      <b-icon icon="trash" />
+                    </b-link>
+                  </div>
+                </template>
+              </b-table>
+              <b-pagination
+                v-model="page"
+                :total-rows="total"
+                :per-page="10"
+                class="m-1"
+                pills
+              />
+            </div>
           </slot>
         </template>
       </template>

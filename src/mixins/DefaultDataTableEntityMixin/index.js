@@ -1,6 +1,11 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
+  data () {
+    return {
+      page: 1,
+    }
+  },
   computed: {
     entity () {
       if (!this.entities) {

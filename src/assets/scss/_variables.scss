@@ -66,9 +66,9 @@ $gray-500: #adb5bd !default;
 //$colors
 //);
 //
-$primary:       #3425AE !default;
-$secondary:     #AE64CE !default;
-$ternary:       #8137B6 !default;
+$primary:       #C6DABF !default;
+$secondary:     #99C0AC !default;
+$ternary:       #3D8C86 !default;
 //$success:       $green !default;
 //$info:          $cyan !default;
 //$warning:       $yellow !default;
@@ -1161,6 +1161,6 @@ $realtime-color:                      $gray-500;
 //SIDEBAR
 $sidebar-radius:                      0 50px 0 0;
 $sidebar-background:                  linear-gradient(to bottom, $secondary 0%, $primary 100%);
-$sidebar-item-color:                  $gray-300;
+$sidebar-item-color:                  $white;
 $sidebar-hover-bg:                    $ternary;
 $sidebar-hover-color:                 $white;
