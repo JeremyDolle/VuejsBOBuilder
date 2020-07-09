@@ -15,9 +15,22 @@
     img {
       margin: 0 5px;
       height: 100%;
+      animation-duration: 2s;
+      animation-name: ghost;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
   }
   .not-found-text {
     color: $gray-400;
+  }
+}
+
+@keyframes ghost {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0px);
   }
 }
