@@ -27,7 +27,6 @@ const buildMutations = (key) => {
       }
     },
     [`set_${key}s`] (state, { data, total, page }) {
-      console.log(total, 'oh')
       state[`${key}s`] = {
         entities: data.reduce((acc, entity) => ({
           ...acc,
@@ -118,6 +117,11 @@ const buildActions = (key, apiConfig) => {
     async [`create_${key}`] ({ commit, dispatch }, payload) {
       // API CALL(payload)
       try {
+        // TODO uncomment for formdata
+        // const formData = new FormData()
+        // Object.entries(payload).forEach(([key, value]) => formData.append(key, value))
+        // const url = `${apiConfig.url}/${apiConfig.endpoints.create.url}`
+        // await api.post(url, formData)
         const url = `${apiConfig.url}/${apiConfig.endpoints.create.url}`
         await api.post(url, payload)
         dispatch('ui/showToast', { title: 'Création', description: 'L\'entité à bien été crée', variant: 'success' }, { root: true })
@@ -130,6 +134,12 @@ const buildActions = (key, apiConfig) => {
       commit(`set_${key}_loading`, { id, bool: true })
       // API CALL(payload)
       try {
+        console.log(payload)
+        // TODO uncomment for formdata
+        // const formData = new FormData()
+        // Object.entries(payload).forEach(([key, value]) => formData.append(key, value))
+        // const url = `${apiConfig.url}/${apiConfig.endpoints.update.url.replace(':id', id)}`
+        // await api.put(url, formData)
         const url = `${apiConfig.url}/${apiConfig.endpoints.update.url.replace(':id', id)}`
         await api.put(url, payload)
         commit(`set_${key}_loading`, { id, bool: false })

@@ -26,4 +26,7 @@ body {
   .btn {
     color: $white;
   }
+  .fit-cover {
+    object-fit: cover;
+  }
 }

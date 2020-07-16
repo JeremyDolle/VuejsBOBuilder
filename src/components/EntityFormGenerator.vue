@@ -1,20 +1,22 @@
 <template>
   <well :title="title">
-    <form @submit.prevent.stop="$emit('submit', model)">
-      <vue-form-generator
-        v-if="model"
-        :schema="{fields: fields}"
-        :model="model"
-        :options="formOptions"
-        @validated="onValidated"
-      />
-      <b-button
-        type="submit"
-        :disabled="!submitEnable"
-      >
-        VALIDER
-      </b-button>
-    </form>
+    <div>
+      <form @submit.prevent.stop="$emit('submit', model)">
+        <vue-form-generator
+          v-if="model"
+          :schema="{fields: fields}"
+          :model="model"
+          :options="formOptions"
+          @validated="onValidated"
+        />
+        <b-button
+          type="submit"
+          :disabled="!submitEnable"
+        >
+          VALIDER
+        </b-button>
+      </form>
+    </div>
   </well>
 </template>
 

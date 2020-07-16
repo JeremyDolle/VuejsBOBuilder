@@ -1,9 +1,7 @@
 {
   "key": "email",
-  "type": "input",
   "inputType": "email",
   "label": "Adresse e-mail",
-  "model": "email",
   "required": true,
   "placeholder": "Entrez votre adresse e-mail",
   "validator": ["email"]

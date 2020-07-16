@@ -15,6 +15,7 @@ import {
   ModalPlugin,
   PaginationPlugin,
   VBTooltipPlugin,
+  FormFilePlugin,
 } from 'bootstrap-vue'
 
 Vue.use(ButtonPlugin)
@@ -32,3 +33,4 @@ Vue.use(ToastPlugin)
 Vue.use(ModalPlugin)
 Vue.use(PaginationPlugin)
 Vue.use(VBTooltipPlugin)
+Vue.use(FormFilePlugin)

@@ -20,6 +20,9 @@
       </div>
     </template>
   </entity-provider>
+  <div v-else-if="isImage">
+    <b-img-lazy v-if="field.value" height="50" width="50" class="fit-cover" rounded="circle" :src="field.value" />
+  </div>
   <div v-else>
     {{ field.value }}
   </div>
@@ -43,6 +46,9 @@ export default {
   computed: {
     isRelation () {
       return this.resource.isRelation
+    },
+    isImage () {
+      return this.resource.isImage
     },
     resource () {
       return this.schema.find(field => {

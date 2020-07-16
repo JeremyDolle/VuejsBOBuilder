@@ -1,8 +1,5 @@
 {
   "key": "title",
-  "type": "input",
-  "inputType": "text",
   "label": "Titre",
-  "model": "title",
   "placeholder": "Votre titre"
 }

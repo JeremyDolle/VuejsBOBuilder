@@ -9,7 +9,6 @@
       "key": "body",
       "type": "textArea",
       "label": "body",
-      "model": "body",
       "placeholder": "Entrer un corps de message"
     }
   ]

@@ -29,7 +29,7 @@
       :module="entity.name"
       :page="page"
     >
-      <template #default="{data: entities, isLoading, isError, total}">
+      <template #default="{ data: entities, isLoading, isError, total }">
         <div v-if="isError">
           {{ isError }}
         </div>
@@ -41,17 +41,16 @@
         </div>
         <template v-else>
           <slot v-bind="{ entities }">
-            <div class="b-table-sticky-header h-100">
+            <div class="b-table-sticky-header h-100 mb-0">
               <b-table
                 :sticky-header="true"
                 :items="entities"
                 :fields="[...entity.schema.map(field => field.key), 'actions']"
                 class="h-100"
                 responsive
-                hover
               >
                 <template #cell()="data">
-                  <table-cell
+                  <table-entity-cell
                     :key="data.item.id"
                     :schema="entity.schema"
                     :field="data"
@@ -99,12 +98,12 @@
 <script>
 import EntityProvider from '@/components/EntityProvider'
 import Well from '@/components/Well'
-import TableCell from '@/components/TableEntityCell'
+import TableEntityCell from '@/components/TableEntityCell'
 import { DefaultDataTableEntityMixin } from '@/mixins'
 
 export default {
   name: 'DefaultDataTableEntity',
-  components: { Well, EntityProvider, TableCell },
+  components: { Well, EntityProvider, TableEntityCell },
   mixins: [DefaultDataTableEntityMixin],
 }
 </script>

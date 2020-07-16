@@ -4,29 +4,29 @@
   "url": "/user",
   "icon": "people",
   "schema": [
+    {
+      "key": "avatar",
+      "type": "image-input",
+      "isImage": true,
+      "browse": true,
+      "preview": false
+    },
     "name",
     "email",
     {
       "key": "username",
-      "type": "input",
-      "inputType": "text",
       "label": "Pseudo",
-      "model": "username",
       "placeholder": "Entrez un pseudo"
     },
     {
       "key": "phone",
       "type": "phone-input",
       "label": "Téléphone",
-      "model": "phone",
       "placeholder": "Entrez votre téléphone"
     },
     {
       "key": "website",
-      "type": "input",
-      "inputType": "text",
       "label": "Site web",
-      "model": "website",
       "placeholder": "Entrez l'url de votre site"
     }
   ]

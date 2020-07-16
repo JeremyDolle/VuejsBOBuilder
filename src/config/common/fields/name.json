@@ -1,7 +1,4 @@
 {
   "key": "name",
-  "type": "input",
-  "inputType": "text",
-  "label": "Nom",
-  "model": "name"
+  "label": "Nom"
 }

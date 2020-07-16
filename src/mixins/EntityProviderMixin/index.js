@@ -77,7 +77,6 @@ export default {
       return error
     },
     total () {
-      console.log(this.state[`${this.entity}s`])
       return this.state[`${this.entity}s`].total
     },
   },

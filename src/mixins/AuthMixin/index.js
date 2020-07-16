@@ -9,6 +9,7 @@ export default {
   }),
   methods: {
     ...mapActions('auth', ['login']),
+    ...mapActions('auth', ['logout']),
     submit () {
       const { email, password } = this.form
       this.login({ email, password })
