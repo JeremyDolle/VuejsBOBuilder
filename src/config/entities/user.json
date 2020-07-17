@@ -1,33 +1,11 @@
 {
-  "name": "user",
-  "label": "Utilisateurs",
-  "url": "/user",
   "icon": "people",
   "schema": [
-    {
-      "key": "avatar",
-      "type": "image-input",
-      "isImage": true,
-      "browse": true,
-      "preview": false
-    },
+    "avatar",
     "name",
     "email",
-    {
-      "key": "username",
-      "label": "Pseudo",
-      "placeholder": "Entrez un pseudo"
-    },
-    {
-      "key": "phone",
-      "type": "phone-input",
-      "label": "Téléphone",
-      "placeholder": "Entrez votre téléphone"
-    },
-    {
-      "key": "website",
-      "label": "Site web",
-      "placeholder": "Entrez l'url de votre site"
-    }
+    "username",
+    "phone",
+    "website"
   ]
 }

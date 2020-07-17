@@ -7,6 +7,7 @@ export default function (schema) {
     }
     if (typeof field === 'string') {
       const { default: commonField } = await import('@/config/common/fields/' + field + '.json')
+        .catch(() => ({ default: { key: field } }))
       return normalizeField(commonField)
     }
     return null

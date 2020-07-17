@@ -1,15 +1,7 @@
 {
-  "name": "post",
-  "label": "Articles",
   "icon": "bookmarks",
-  "url": "/post",
   "schema": [
     "title",
-    {
-      "key": "body",
-      "type": "textArea",
-      "label": "body",
-      "placeholder": "Entrer un corps de message"
-    }
+    "body"
   ]
 }

@@ -40,7 +40,6 @@
         </small>
       </router-link>
     </b-list-group-item>
-
     <b-list-group-item class="side-bar-menu--item mt-auto">
       <router-link to="/">
         <b-icon

@@ -1,26 +1,9 @@
 {
-  "name": "comment",
-  "label": "Reactions",
   "icon": "chat",
-  "url": "/comment",
   "schema": [
     "name",
     "email",
-    {
-      "key": "postId",
-      "type": "entity-select",
-      "inputType": "post",
-      "label": "postId",
-      "convertToString": ["title"],
-      "isRelation": true,
-      "required": true,
-      "validator": "required"
-    },
-    {
-      "key": "body",
-      "type": "textArea",
-      "label": "body",
-      "placeholder": "Entrer un corps de message"
-    }
+    "post",
+    "body"
   ]
 }
