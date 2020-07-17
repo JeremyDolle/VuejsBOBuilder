@@ -24,11 +24,11 @@ export default {
   methods: {
     ...mapActions({
       async deleteEntity (dispatch, id) {
-        this.$bvModal.msgBoxConfirm('Etes-vous certain de vouloir supprimer cette ligne ? Un fois supprimé, elle se pourra plus etre récupérée.', {
-          title: 'Confimez-vous la suppression ?',
+        this.$bvModal.msgBoxConfirm(this.$t('actions.deleteConfirm.description'), {
+          title: this.$t('actions.deleteConfirm.title'),
           cancelVariant: 'default',
-          okTitle: 'Supprimer',
-          cancelTitle: 'Annuler',
+          okTitle: this.$t('actions.delete'),
+          cancelTitle: this.$t('actions.cancel'),
           hideHeaderClose: true,
           centered: true,
           headerClass: 'border-0 d-flex justify-content-center',

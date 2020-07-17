@@ -4,20 +4,20 @@
       class="logo"
       :src="coloredLogo"
     />
-    <well title="Bienvenue sur votre BackOffice">
+    <well :title="$t('app.welcome')">
       <b-input
         v-model="form.email"
-        placeholder="email"
+        :placeholder="$t('fields.email.placeholder')"
         class="mb-3"
       />
       <b-input
         v-model="form.password"
-        placeholder="mot de passe"
+        :placeholder="$t('fields.password.placeholder')"
         class="mb-3"
         type="password"
       />
       <b-button @click="submit">
-        Se connecter
+        {{ $t('actions.connect') }}
       </b-button>
     </well>
   </div>

@@ -6,7 +6,7 @@
       4
     </div>
     <div class="not-found-text">
-      La page que vous cherchez n'existe pas
+      {{ $t('pages.notFound.title') }}
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@
       v-if="loading"
       class="d-flex flex-column align-items-center justify-content-center h-100"
     >
-      <small>Chargement de l'application et de ses modules</small>
+      <small>{{ $t('app.loading') }}</small>
       <b-spinner variant="secondary" />
     </div>
 

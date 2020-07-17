@@ -41,23 +41,23 @@
       </router-link>
     </b-list-group-item>
     <b-list-group-item class="side-bar-menu--item mt-auto">
-      <router-link to="/">
+      <b-link @click.prevent="logout">
         <b-icon
           icon="power"
           class="icon"
         />
-      </router-link>
+      </b-link>
     </b-list-group-item>
   </b-list-group>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { SettingsMixin } from '@/mixins'
+import { AuthMixin, SettingsMixin } from '@/mixins'
 
 export default {
   name: 'SidebarMenu',
-  mixins: [SettingsMixin],
+  mixins: [SettingsMixin, AuthMixin],
   computed: {
     ...mapState('config', ['entities']),
     resource () {

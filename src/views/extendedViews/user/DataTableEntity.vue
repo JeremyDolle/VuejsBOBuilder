@@ -1,7 +1,7 @@
 <template>
   <default-data-table-entity>
     <template #data-table-default-prepend>
-      <div>TEST DE OVERRIDE DE LA VUE DE BASE</div>
+      <div class="m-2 text-center">🚧 TEST DE OVERRIDE DE LA VUE DE BASE 🚧 </div>
     </template>
   </default-data-table-entity>
 </template>

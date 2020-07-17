@@ -8,8 +8,11 @@
           name="data-table--well-header"
           v-bind="slotDataTableWellHeader"
         >
-          <span>{{ entity.label }} - Liste</span>
-          <b-link :to="{ name: 'CreateEntity', params: { resource: $route.params.resource } }">
+          <span>{{ $t('pages.list.title', {entity: entity.label}) }}</span>
+          <b-link
+            v-b-tooltip.hover="$t('actions.create')"
+            :to="{ name: 'CreateEntity', params: { resource: $route.params.resource } }"
+          >
             <b-icon
               icon="plus-circle"
               class="icon ml-auto text-secondary"
@@ -45,7 +48,7 @@
               <b-table
                 :sticky-header="true"
                 :items="entities"
-                :fields="[...entity.schema.map(field => field.key), 'actions']"
+                :fields="[...entity.schema.map(({key, label}) => ({key, label})), 'actions']"
                 class="h-100"
                 responsive
               >
@@ -59,7 +62,7 @@
                 <template #cell(actions)="data">
                   <div class="data-table-actions">
                     <b-link
-                      v-b-tooltip.hover="'Edit'"
+                      v-b-tooltip.hover="$t('actions.edit')"
                       class="data-table-action"
                       :to="{
                         name: 'EditEntity',
@@ -69,7 +72,7 @@
                       <b-icon icon="pencil" />
                     </b-link>
                     <b-link
-                      v-b-tooltip.hover="'Supprimer'"
+                      v-b-tooltip.hover="$t('actions.delete')"
                       class="data-table-action"
                       href="#"
                       @click.prevent="() => deleteEntity(data.item.id)"

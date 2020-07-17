@@ -1,5 +1,5 @@
 export default {
   logout_success (state) {
-    state = null
+    state.token = null
   },
 }

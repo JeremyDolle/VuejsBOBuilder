@@ -1,5 +1,5 @@
 import loginMutations from './login'
-import clearModule from './clearModule'
+import clearModule from './logout'
 
 export default {
   ...loginMutations,

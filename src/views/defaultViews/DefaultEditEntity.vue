@@ -17,7 +17,7 @@
           v-else-if="data"
           :entity="data[0]"
           :fields="entity.schema"
-          :title="`${entity.label} - Formulaire d'édition`"
+          :title="$t('pages.edit.title', {entity: entity.label})"
           @submit="editEntity($event, data[0].id)"
         />
       </template>

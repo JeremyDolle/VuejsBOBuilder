@@ -1,11 +1,15 @@
 export default {
+  app: {
+    welcome: 'Bienvenue sur votre BackOffice',
+    loading: 'Chargement de l\'application et de ses modules',
+  },
   fields: {
     title: {
       label: 'Titre',
       placeholder: 'Entrez un titre',
     },
     body: {
-      label: 'Body',
+      label: 'Texte',
       placeholder: 'Entrez un corps de message',
     },
     name: {
@@ -15,6 +19,10 @@ export default {
     email: {
       label: 'Email',
       placeholder: 'Entrez un email',
+    },
+    password: {
+      label: 'Mot de passe',
+      placeholder: 'Entrez un mot de passe',
     },
     postId: {
       label: 'Article',
@@ -46,6 +54,49 @@ export default {
     },
     comment: {
       label: 'Réactions',
+    },
+  },
+  pages: {
+    list: {
+      title: 'Liste des {entity}',
+    },
+    create: {
+      title: 'Formulaire de création des {entity}',
+    },
+    edit: {
+      title: 'Formulaire d\'édition des {entity}',
+    },
+    notFound: {
+      title: 'La page que vous cherchez n\'existe pas',
+    },
+  },
+  toasts: {
+    error: 'Erreur',
+    create: {
+      title: 'Création',
+      success: 'L\'entité à bien été crée',
+      error: 'Erreur pendant la création',
+    },
+    edit: {
+      title: 'Mise à jour',
+      success: 'L\'entité à bien été mise à jour',
+      error: 'Erreur pendant la mise à jour',
+    },
+    delete: {
+      title: 'Suppression',
+      success: 'L\'entité à bien été supprimée',
+      error: 'Erreur pendant la suppression',
+    },
+  },
+  actions: {
+    connect: 'Se connecter',
+    create: 'Créer',
+    edit: 'Editer',
+    delete: 'Supprimer',
+    cancel: 'Annuler',
+    deleteConfirm: {
+      title: 'Confimez-vous la suppression ?',
+      description: 'Etes-vous certain de vouloir supprimer cette ligne ? Une fois supprimée, elle ne pourra plus être récupérée.',
     },
   },
 }
