@@ -4,6 +4,7 @@
     "colored": "logo_colored.png",
     "light": "logo_white.png",
     "dark": "logo_colored.png",
-    "notFound": "ghost.svg"
+    "notFound": "ghost.svg",
+    "empty": "cactus.svg"
   }
 }

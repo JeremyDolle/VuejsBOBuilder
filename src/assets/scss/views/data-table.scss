@@ -25,4 +25,10 @@
       margin: 0 5px;
     }
   }
+  .b-table-empty-row td {
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
