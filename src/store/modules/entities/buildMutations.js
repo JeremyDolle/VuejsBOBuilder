@@ -1,7 +1,9 @@
+// import Vue from 'vue'
+
 export default (key) => {
   return {
     [`set_${key}`] (state, entity) {
-      state[`${key}s`].entities[entity.id] = {
+      state[`${key}s`].entities[entity._id] = {
         ...entity,
         $status: {
           loading: false,
@@ -13,7 +15,7 @@ export default (key) => {
       state[`${key}s`] = {
         entities: data.reduce((acc, entity) => ({
           ...acc,
-          [entity.id]: {
+          [entity._id]: {
             ...entity,
             $status: {
               loading: false,

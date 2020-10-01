@@ -4,7 +4,7 @@ import router from '@/router'
 export default async ({ commit }, { email, password }) => {
   commit('login_loading')
   try {
-    const { data: { token } } = await api.post('/login', { email: email, password: password })
+    const { data: { token } } = await api.post('/auth/login', { email: email, password: password })
 
     commit('login_success', token)
 

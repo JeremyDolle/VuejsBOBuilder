@@ -20,5 +20,8 @@ export default {
     notFoundLogo () {
       return require(`@/assets/images/${this.applicationLogos.notFound}`)
     },
+    emptyLogo () {
+      return require(`@/assets/images/${this.applicationLogos.empty}`)
+    },
   },
 }
