@@ -1,0 +1,89 @@
+.empty-message {
+  position: relative;
+  display: flex;
+  align-items: center;
+  img {
+    left: -50px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    animation-duration: 10s;
+    animation-name: dust;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  .message {
+    padding-top: 80px;
+    display: block;
+    width: 100%;
+    color: $secondary;
+    text-align: center;
+  }
+}
+
+@keyframes dust {
+  0% {
+    left: 0;
+    transform: translateY(0px) rotate(0deg)
+  }
+  10% {
+    left: 10%;
+    transform: translateY(-20px) rotate(180deg)
+  }
+  15% {
+    left: 15%;
+    transform: translateY(-17px) rotate(225deg)
+  }
+  20% {
+    left: 20%;
+    transform: translateY(0px) rotate(270deg)
+  }
+  30% {
+    left: 30%;
+    transform: translateY(-20px) rotate(450deg)
+  }
+  35% {
+    left: 35%;
+    transform: translateY(-17px) rotate(495deg)
+  }
+  40% {
+    left: 40%;
+    transform: translateY(0px) rotate(540deg)
+  }
+  50% {
+    left: 50%;
+    transform: translateY(-20px) rotate(720deg)
+  }
+  55% {
+    left: 55%;
+    transform: translateY(-17px) rotate(765deg)
+  }
+  60% {
+    left: 60%;
+    transform: translateY(0px) rotate(810deg)
+  }
+  70% {
+    left: 70%;
+    transform: translateY(-20px) rotate(990deg)
+  }
+  75% {
+    left: 75%;
+    transform: translateY(-17px) rotate(1035deg)
+  }
+  80% {
+    left: 80%;
+    transform: translateY(0px) rotate(1080deg)
+  }
+  90% {
+    left: 90%;
+    transform: translateY(-20px) rotate(1260deg)
+  }
+  95% {
+    left: 95%;
+    transform: translateY(-17px) rotate(1305deg)
+  }
+  100% {
+    left:100%;
+    transform: translateY(0px) rotate(1350deg)
+  }
+}

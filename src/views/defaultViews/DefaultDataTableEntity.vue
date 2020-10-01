@@ -46,15 +46,19 @@
           <slot v-bind="{ entities }">
             <div class="b-table-sticky-header h-100 mb-0">
               <b-table
-                :sticky-header="true"
+                sticky-header
+                show-empty
                 :items="entities"
                 :fields="[...entity.schema.map(({key, label}) => ({key, label})), 'actions']"
                 class="h-100"
                 responsive
               >
+                <template #empty>
+                  <empty-message />
+                </template>
                 <template #cell()="data">
                   <table-entity-cell
-                    :key="data.item.id"
+                    :key="data.item._id"
                     :schema="entity.schema"
                     :field="data"
                   />
@@ -66,7 +70,7 @@
                       class="data-table-action"
                       :to="{
                         name: 'EditEntity',
-                        params: { resource: $route.params.resource, id: data.item.id }
+                        params: { resource: $route.params.resource, id: data.item._id }
                       }"
                     >
                       <b-icon icon="pencil" />
@@ -75,7 +79,7 @@
                       v-b-tooltip.hover="$t('actions.delete')"
                       class="data-table-action"
                       href="#"
-                      @click.prevent="() => deleteEntity(data.item.id)"
+                      @click.prevent="() => deleteEntity(data.item._id)"
                     >
                       <b-icon icon="trash" />
                     </b-link>
@@ -103,10 +107,11 @@ import EntityProvider from '@/components/EntityProvider'
 import Well from '@/components/Well'
 import TableEntityCell from '@/components/TableEntityCell'
 import { DefaultDataTableEntityMixin } from '@/mixins'
+import EmptyMessage from '@/components/EmptyMessage'
 
 export default {
   name: 'DefaultDataTableEntity',
-  components: { Well, EntityProvider, TableEntityCell },
+  components: { EmptyMessage, Well, EntityProvider, TableEntityCell },
   mixins: [DefaultDataTableEntityMixin],
 }
 </script>
