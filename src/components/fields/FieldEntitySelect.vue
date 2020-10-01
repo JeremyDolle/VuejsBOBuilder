@@ -37,7 +37,7 @@
               :options="data"
               :allow-empty="false"
               v-bind="schema"
-              @input="updateModelValue($event.id)"
+              @input="updateModelValue($event._id)"
             />
           </template>
         </entity-provider>
@@ -51,7 +51,7 @@
           :placeholder="schema.placeholder"
           :options="data"
           :allow-empty="false"
-          @input="updateModelValue($event.id)"
+          @input="updateModelValue($event._id)"
         />
       </template>
     </template>

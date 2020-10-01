@@ -18,7 +18,7 @@
           :entity="data[0]"
           :fields="entity.schema"
           :title="$t('pages.edit.title', {entity: entity.label})"
-          @submit="editEntity($event, data[0].id)"
+          @submit="editEntity($event, data[0]._id)"
         />
       </template>
     </entity-provider>

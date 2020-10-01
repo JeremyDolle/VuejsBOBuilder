@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://reqres.in/api',
+  baseURL: 'http://localhost/api',
 })
 
 // instance.defaults.headers.post['Content-Type'] = 'multipart/form-data'

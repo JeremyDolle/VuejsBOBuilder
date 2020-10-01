@@ -2,7 +2,6 @@
   "icon": "chat",
   "schema": [
     "name",
-    "email",
     "post",
     "body"
   ]

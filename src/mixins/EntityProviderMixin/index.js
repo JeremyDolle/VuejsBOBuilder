@@ -58,7 +58,7 @@ export default {
           }, {})
         })
       }
-      return null
+      return []
     },
     isLoading () {
       let { loading } = this.state[`${this.entity}s`].$status

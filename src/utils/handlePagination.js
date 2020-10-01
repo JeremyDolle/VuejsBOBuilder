@@ -6,9 +6,9 @@
  * }
  */
 export default function (response) {
-  const { data, headers: { 'x-total-count': total } } = response
+  const { data, headers: { 'x-total-count': total = 1 } } = response
   return {
-    data,
+    data: data.data,
     total,
   }
 }
