@@ -16,6 +16,7 @@ import {
   PaginationPlugin,
   VBTooltipPlugin,
   FormFilePlugin,
+  OverlayPlugin,
 } from 'bootstrap-vue'
 
 Vue.use(ButtonPlugin)
@@ -34,3 +35,4 @@ Vue.use(ModalPlugin)
 Vue.use(PaginationPlugin)
 Vue.use(VBTooltipPlugin)
 Vue.use(FormFilePlugin)
+Vue.use(OverlayPlugin)
