@@ -26,14 +26,19 @@
 </template>
 
 <script>
-
 import EntityProvider from '@/components/EntityProvider'
 import EntityFormGenerator from '@/components/EntityFormGenerator'
-import { DefaultEditEntityMixin } from '@/mixins'
+import { DefaultEditEntityMixin, PermissionsMixin } from '@/mixins'
 
 export default {
   name: 'DefaultEditEntity',
   components: { EntityFormGenerator, EntityProvider },
-  mixins: [DefaultEditEntityMixin],
+  mixins: [DefaultEditEntityMixin, PermissionsMixin],
+  props: {
+    action: {
+      type: String,
+      default: 'update',
+    },
+  },
 }
 </script>

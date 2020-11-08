@@ -9,12 +9,18 @@
 </template>
 
 <script>
-import { DefaultCreateEntityMixin } from '@/mixins'
+import { DefaultCreateEntityMixin, PermissionsMixin } from '@/mixins'
 import EntityFormGenerator from '@/components/EntityFormGenerator'
 
 export default {
-  name: 'DefaultEditEntity',
+  name: 'DefaultCreateEntity',
   components: { EntityFormGenerator },
-  mixins: [DefaultCreateEntityMixin],
+  mixins: [DefaultCreateEntityMixin, PermissionsMixin],
+  props: {
+    action: {
+      type: String,
+      default: 'Create',
+    },
+  },
 }
 </script>

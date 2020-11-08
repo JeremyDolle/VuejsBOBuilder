@@ -9,15 +9,24 @@
           v-bind="slotDataTableWellHeader"
         >
           <span>{{ $t('pages.list.title', {entity: entity.label}) }}</span>
-          <b-link
-            v-b-tooltip.hover="$t('actions.create')"
-            :to="{ name: 'CreateEntity', params: { resource: $route.params.resource } }"
+          <can
+            action="delete"
+            :resource="$route.params.resource"
           >
-            <b-icon
-              icon="plus-circle"
-              class="icon ml-auto text-secondary"
-            />
-          </b-link>
+            <template #default="{ allowed }">
+              <div v-b-tooltip.hover="allowed ? $t('actions.create') : $t('actions.not_allowed')">
+                <b-link
+                  :disabled="!allowed"
+                  :to="{ name: 'CreateEntity', params: { resource: $route.params.resource } }"
+                >
+                  <b-icon
+                    icon="plus-circle"
+                    class="icon ml-auto text-secondary"
+                  />
+                </b-link>
+              </div>
+            </template>
+          </can>
         </slot>
 
         <slot name="data-table--well-header-append" />
@@ -65,24 +74,42 @@
                 </template>
                 <template #cell(actions)="data">
                   <div class="data-table-actions">
-                    <b-link
-                      v-b-tooltip.hover="$t('actions.edit')"
-                      class="data-table-action"
-                      :to="{
-                        name: 'EditEntity',
-                        params: { resource: $route.params.resource, id: data.item._id }
-                      }"
+                    <can
+                      action="delete"
+                      :resource="$route.params.resource"
                     >
-                      <b-icon icon="pencil" />
-                    </b-link>
-                    <b-link
-                      v-b-tooltip.hover="$t('actions.delete')"
-                      class="data-table-action"
-                      href="#"
-                      @click.prevent="() => deleteEntity(data.item._id)"
+                      <template #default="{ allowed }">
+                        <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
+                          <b-link
+                            :disabled="!allowed"
+                            class="data-table-action"
+                            :to="{
+                              name: 'EditEntity',
+                              params: { resource: $route.params.resource, id: data.item._id }
+                            }"
+                          >
+                            <b-icon icon="pencil" />
+                          </b-link>
+                        </div>
+                      </template>
+                    </can>
+                    <can
+                      action="delete"
+                      :resource="$route.params.resource"
                     >
-                      <b-icon icon="trash" />
-                    </b-link>
+                      <template #default="{ allowed }">
+                        <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
+                          <b-link
+                            :disabled="!allowed"
+                            class="data-table-action"
+                            href="#"
+                            @click.prevent="() => deleteEntity(data.item._id)"
+                          >
+                            <b-icon icon="trash" />
+                          </b-link>
+                        </div>
+                      </template>
+                    </can>
                   </div>
                 </template>
               </b-table>
@@ -106,12 +133,19 @@
 import EntityProvider from '@/components/EntityProvider'
 import Well from '@/components/Well'
 import TableEntityCell from '@/components/TableEntityCell'
-import { DefaultDataTableEntityMixin } from '@/mixins'
+import { DefaultDataTableEntityMixin, PermissionsMixin } from '@/mixins'
 import EmptyMessage from '@/components/EmptyMessage'
+import Can from '@/components/Can'
 
 export default {
   name: 'DefaultDataTableEntity',
-  components: { EmptyMessage, Well, EntityProvider, TableEntityCell },
-  mixins: [DefaultDataTableEntityMixin],
+  components: { Can, EmptyMessage, Well, EntityProvider, TableEntityCell },
+  mixins: [DefaultDataTableEntityMixin, PermissionsMixin],
+  props: {
+    action: {
+      type: String,
+      default: 'read',
+    },
+  },
 }
 </script>

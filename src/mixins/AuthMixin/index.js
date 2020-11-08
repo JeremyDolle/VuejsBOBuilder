@@ -8,11 +8,13 @@ export default {
     },
   }),
   methods: {
+    ...mapActions('auth', ['me']),
     ...mapActions('auth', ['login']),
     ...mapActions('auth', ['logout']),
-    submit () {
+    async submit () {
       const { email, password } = this.form
-      this.login({ email, password })
+      await this.login({ email, password })
+      await this.me()
     },
   },
 }

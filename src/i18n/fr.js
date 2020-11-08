@@ -89,6 +89,7 @@ export default {
     },
   },
   actions: {
+    not_allowed: 'Vous n\'avez pas les permissions',
     connect: 'Se connecter',
     create: 'Créer',
     edit: 'Editer',

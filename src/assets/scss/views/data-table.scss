@@ -9,6 +9,10 @@
     .icon {
       font-size: 20px;
     }
+    a.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
   .data-table-actions {
     display: flex;
@@ -23,6 +27,10 @@
       justify-content: center;
       align-items: center;
       margin: 0 5px;
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
   }
   .b-table-empty-row td {

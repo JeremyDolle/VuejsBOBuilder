@@ -10,6 +10,12 @@ export default {
     getEntitySchemaByName: (state) => (name) => {
       return state.entities.find(entity => entity.name === name).schema
     },
+    getEntityPermissionsByName: (state) => (name) => {
+      if (!state.entities) {
+        return []
+      }
+      return (state.entities.find(entity => entity.name === name) || {}).needPermissions || []
+    },
     getEntityFieldByName: (state) => (entityName, field) => {
       return state.entities.find(entity => entity.name === entityName).schema.find(({ key }) => key === field)
     },
