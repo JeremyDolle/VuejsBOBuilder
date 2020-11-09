@@ -10,7 +10,7 @@
         >
           <span>{{ $t('pages.list.title', {entity: entity.label}) }}</span>
           <can
-            action="delete"
+            action="create"
             :resource="$route.params.resource"
           >
             <template #default="{ allowed }">
@@ -75,7 +75,7 @@
                 <template #cell(actions)="data">
                   <div class="data-table-actions">
                     <can
-                      action="delete"
+                      action="update"
                       :resource="$route.params.resource"
                     >
                       <template #default="{ allowed }">
