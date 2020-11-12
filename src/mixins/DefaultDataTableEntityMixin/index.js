@@ -4,6 +4,8 @@ export default {
   data () {
     return {
       page: 1,
+      sortBy: null,
+      sortDesc: false,
     }
   },
   computed: {
@@ -59,6 +61,16 @@ export default {
       if (search === '') {
         callback()
       }
+    },
+    setSort ({ sortBy, sortDesc }, callback = () => {}) {
+      this.sortBy = sortBy
+      this.sortDesc = sortDesc
+      const { resource } = this.$route.params
+      this.$store.dispatch(`${resource}/set_${resource}s_sort`, {
+        sortBy,
+        sortDesc: sortDesc ? 'desc' : 'asc',
+      })
+      callback()
     },
   },
 }

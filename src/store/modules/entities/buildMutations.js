@@ -11,7 +11,7 @@ export default (key) => {
         },
       }
     },
-    [`set_${key}s`] (state, { data, total, page, search }) {
+    [`set_${key}s`] (state, { data, total, page, search, sortBy }) {
       state[`${key}s`] = {
         entities: data.reduce((acc, entity) => ({
           ...acc,
@@ -30,6 +30,7 @@ export default (key) => {
         total,
         page,
         search,
+        sortBy,
       }
     },
     [`pop_${key}s`] (state, entity) {
@@ -67,8 +68,16 @@ export default (key) => {
     [`set_${key}s_error`] (state, error) {
       state[`${key}s`].$status.error = error
     },
+    // search
     [`set_${key}s_search`] (state, { search = '' }) {
       state[`${key}s`].search = search
+    },
+    // sort
+    [`set_${key}s_sort`] (state, { sortBy, sortDesc }) {
+      state[`${key}s`].sortBy = {
+        ...state[`${key}s`].sortBy || {},
+        [sortBy]: sortDesc,
+      }
     },
   }
 }

@@ -35,6 +35,11 @@ export default {
         return state[this.module][`${this.entity}s`].search
       },
     }),
+    ...mapState({
+      sortBy (state) {
+        return state[this.module][`${this.entity}s`].sortBy
+      },
+    }),
     ...mapState({ state (state) { return { ...state[this.module] } } }),
     ...mapGetters('config', ['getEntityFieldByName']),
     data () {
@@ -96,7 +101,11 @@ export default {
         if (this.id) {
           return dispatch(`${this.module}/fetch_${this.entity}`, this.id)
         }
-        return dispatch(`${this.module}/fetch_${this.entity}s`, { page: this.page, search: this.search })
+        return dispatch(`${this.module}/fetch_${this.entity}s`, {
+          page: this.page,
+          search: this.search,
+          sortBy: this.sortBy,
+        })
       },
     }),
     buildToString (item, keys) {

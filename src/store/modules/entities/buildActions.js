@@ -20,16 +20,26 @@ export default (key, apiConfig) => {
       }
     },
     // Get all
-    async [`fetch_${key}s`] ({ commit, rootGetters }, { page = 1, search, sortBy, desc }) {
+    async [`fetch_${key}s`] ({ commit, rootGetters }, { page = 1, search, sortBy }) {
       commit(`set_${key}s_loading`, true)
       // // API CALL
       try {
-        const querySearch = search === '' ? search : `&search=${search}`
+        let querySort = Object.entries(sortBy || {}).reduce((acc, [key, value]) => {
+          return [
+            ...acc,
+            `${key}=${value}`,
+          ]
+        }, []).join('&')
+        if (querySort !== '') {
+          querySort = `&${querySort}`
+        }
+
+        const querySearch = search === '' ? querySort : `&search=${search}${querySort}`
         const url = `${apiConfig.url}/${apiConfig.endpoints.fetchAll.url}?_page=${page}${querySearch}`
         const token = rootGetters['auth/getTokenHeader']
         const response = await api.get(url, { headers: { Authorization: token } })
         const { data, total } = handlePagination(response)
-        commit(`set_${key}s`, { data, total, page, search })
+        commit(`set_${key}s`, { data, total, page, search, sortBy })
       } catch (e) {
         commit(`set_${key}s_loading`, false)
         commit(`set_${key}s_error`, 'Oh noooooooooo')
@@ -84,8 +94,13 @@ export default (key, apiConfig) => {
         dispatch('ui/showToast', { title: i18n.t('toasts.error'), description: i18n.t('toasts.delete.error'), variant: 'danger' }, { root: true })
       }
     },
+    // search
     async [`set_${key}s_search`] ({ commit, dispatch, rootGetters }, { search }) {
       commit(`set_${key}s_search`, { search })
+    },
+    // sort
+    async [`set_${key}s_sort`] ({ commit, dispatch, rootGetters }, { sortBy, sortDesc }) {
+      commit(`set_${key}s_sort`, { sortBy, sortDesc })
     },
   }
 }

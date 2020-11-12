@@ -80,7 +80,9 @@
                   :fields="[...entity.schema.map(({key, label}) => ({key, label, sortable: true})), 'actions']"
                   class="h-100"
                   responsive
-                  @sort-changed="refresh"
+                  :sort-by.sync="sortBy"
+                  :sort-desc.sync="sortDesc"
+                  @sort-changed="setSort($event, refresh)"
                 >
                   <template #empty>
                     <empty-message />
