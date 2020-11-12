@@ -17,6 +17,7 @@ import {
   VBTooltipPlugin,
   FormFilePlugin,
   OverlayPlugin,
+  InputGroupPlugin,
 } from 'bootstrap-vue'
 
 Vue.use(ButtonPlugin)
@@ -36,3 +37,4 @@ Vue.use(PaginationPlugin)
 Vue.use(VBTooltipPlugin)
 Vue.use(FormFilePlugin)
 Vue.use(OverlayPlugin)
+Vue.use(InputGroupPlugin)

@@ -10,6 +10,8 @@ export default {
       isLoading: this.isLoading,
       isError: this.isError,
       total: this.total,
+      setSearch: this.setSearch,
+      refresh: this.fetch,
     })
   },
 }

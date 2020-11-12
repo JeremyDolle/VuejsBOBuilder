@@ -20,6 +20,12 @@ export default {
         to: { name: 'CreateEntity', params: { resource: this.$route.params.resource } },
       }
     },
+    ...mapState({
+      search (state) {
+        const { resource } = this.$route.params
+        return state[resource][`${resource}s`].search
+      },
+    }),
   },
   methods: {
     ...mapActions({
@@ -47,5 +53,12 @@ export default {
           })
       },
     }),
+    setSearch (search, callback = () => {}) {
+      const { resource } = this.$route.params
+      this.$store.dispatch(`${resource}/set_${resource}s_search`, { search })
+      if (search === '') {
+        callback()
+      }
+    },
   },
 }

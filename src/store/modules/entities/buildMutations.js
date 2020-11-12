@@ -11,7 +11,7 @@ export default (key) => {
         },
       }
     },
-    [`set_${key}s`] (state, { data, total, page }) {
+    [`set_${key}s`] (state, { data, total, page, search }) {
       state[`${key}s`] = {
         entities: data.reduce((acc, entity) => ({
           ...acc,
@@ -29,6 +29,7 @@ export default (key) => {
         },
         total,
         page,
+        search,
       }
     },
     [`pop_${key}s`] (state, entity) {
@@ -65,6 +66,9 @@ export default (key) => {
     },
     [`set_${key}s_error`] (state, error) {
       state[`${key}s`].$status.error = error
+    },
+    [`set_${key}s_search`] (state, { search = '' }) {
+      state[`${key}s`].search = search
     },
   }
 }

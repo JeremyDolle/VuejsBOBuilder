@@ -30,6 +30,11 @@ export default {
     },
   },
   computed: {
+    ...mapState({
+      search (state) {
+        return state[this.module][`${this.entity}s`].search
+      },
+    }),
     ...mapState({ state (state) { return { ...state[this.module] } } }),
     ...mapGetters('config', ['getEntityFieldByName']),
     data () {
@@ -82,11 +87,16 @@ export default {
   },
   methods: {
     ...mapActions({
+      setSearch (dispatch, { search }) {
+        return dispatch(`${this.module}/set_${this.entity}s_search`, { search })
+      },
+    }),
+    ...mapActions({
       fetch (dispatch) {
         if (this.id) {
           return dispatch(`${this.module}/fetch_${this.entity}`, this.id)
         }
-        return dispatch(`${this.module}/fetch_${this.entity}s`, { page: this.page })
+        return dispatch(`${this.module}/fetch_${this.entity}s`, { page: this.page, search: this.search })
       },
     }),
     buildToString (item, keys) {
