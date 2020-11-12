@@ -21,7 +21,7 @@ export default {
         return false
       }
       return this.config.needPermissions[this.action]
-        .every(permission => this.me.permissions.includes(permission))
+        .every(permission => (this.me.permissions || []).includes(permission))
     },
   },
   render () {
