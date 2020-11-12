@@ -54,7 +54,7 @@
         </div>
         <template v-else>
           <slot v-bind="{ entities }">
-            <div>
+            <div class="b-table-sticky-header h-100 mb-0">
               <b-input-group>
                 <b-form-input
                   type="search"
@@ -71,78 +71,75 @@
                   </b-button>
                 </b-input-group-append>
               </b-input-group>
-
-              <div class="b-table-sticky-header h-100 mb-0">
-                <b-table
-                  sticky-header
-                  show-empty
-                  :items="entities"
-                  :fields="[...entity.schema.map(({key, label}) => ({key, label, sortable: true})), 'actions']"
-                  class="h-100"
-                  responsive
-                  :sort-by.sync="sortBy"
-                  :sort-desc.sync="sortDesc"
-                  @sort-changed="setSort($event, refresh)"
-                >
-                  <template #empty>
-                    <empty-message />
-                  </template>
-                  <template #cell()="data">
-                    <table-entity-cell
-                      :key="data.item._id"
-                      :schema="entity.schema"
-                      :field="data"
-                    />
-                  </template>
-                  <template #cell(actions)="data">
-                    <div class="data-table-actions">
-                      <can
-                        action="update"
-                        :resource="$route.params.resource"
-                      >
-                        <template #default="{ allowed }">
-                          <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
-                            <b-link
-                              :disabled="!allowed"
-                              class="data-table-action"
-                              :to="{
-                                name: 'EditEntity',
-                                params: { resource: $route.params.resource, id: data.item._id }
-                              }"
-                            >
-                              <b-icon icon="pencil" />
-                            </b-link>
-                          </div>
-                        </template>
-                      </can>
-                      <can
-                        action="delete"
-                        :resource="$route.params.resource"
-                      >
-                        <template #default="{ allowed }">
-                          <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
-                            <b-link
-                              :disabled="!allowed"
-                              class="data-table-action"
-                              href="#"
-                              @click.prevent="() => deleteEntity(data.item._id)"
-                            >
-                              <b-icon icon="trash" />
-                            </b-link>
-                          </div>
-                        </template>
-                      </can>
-                    </div>
-                  </template>
-                </b-table>
-                <b-pagination
-                  v-model="page"
-                  :total-rows="total"
-                  :per-page="10"
-                  class="m-1"
-                  pills
-                />
-              </div>
+              <b-table
+                sticky-header
+                show-empty
+                :items="entities"
+                :fields="[...entity.schema.map(({key, label}) => ({key, label, sortable: true})), 'actions']"
+                class="h-100"
+                responsive
+                :sort-by.sync="sortBy"
+                :sort-desc.sync="sortDesc"
+                @sort-changed="setSort($event, refresh)"
+              >
+                <template #empty>
+                  <empty-message />
+                </template>
+                <template #cell()="data">
+                  <table-entity-cell
+                    :key="data.item._id"
+                    :schema="entity.schema"
+                    :field="data"
+                  />
+                </template>
+                <template #cell(actions)="data">
+                  <div class="data-table-actions">
+                    <can
+                      action="update"
+                      :resource="$route.params.resource"
+                    >
+                      <template #default="{ allowed }">
+                        <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
+                          <b-link
+                            :disabled="!allowed"
+                            class="data-table-action"
+                            :to="{
+                              name: 'EditEntity',
+                              params: { resource: $route.params.resource, id: data.item._id }
+                            }"
+                          >
+                            <b-icon icon="pencil" />
+                          </b-link>
+                        </div>
+                      </template>
+                    </can>
+                    <can
+                      action="delete"
+                      :resource="$route.params.resource"
+                    >
+                      <template #default="{ allowed }">
+                        <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
+                          <b-link
+                            :disabled="!allowed"
+                            class="data-table-action"
+                            href="#"
+                            @click.prevent="() => deleteEntity(data.item._id)"
+                          >
+                            <b-icon icon="trash" />
+                          </b-link>
+                        </div>
+                      </template>
+                    </can>
+                  </div>
+                </template>
+              </b-table>
+              <b-pagination
+                v-model="page"
+                :total-rows="total"
+                :per-page="10"
+                class="m-1"
+                pills
+              />
             </div>
           </slot>
         </template>
