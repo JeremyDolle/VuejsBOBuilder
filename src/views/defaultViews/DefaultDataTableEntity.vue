@@ -46,16 +46,12 @@
         <div v-if="isError">
           {{ isError }}
         </div>
-        <div
-          v-else-if="isLoading"
-          class="w-100 text-center"
-        >
-          <b-spinner variant="secondary" />
-        </div>
         <template v-else>
           <slot v-bind="{ entities }">
             <div class="b-table-sticky-header h-100 mb-0">
-              <b-input-group>
+              <b-input-group
+                disabled="isLoading"
+              >
                 <b-form-input
                   type="search"
                   :value="search"
@@ -80,8 +76,17 @@
                 responsive
                 :sort-by.sync="sortBy"
                 :sort-desc.sync="sortDesc"
+                :busy="isLoading"
                 @sort-changed="setSort($event, refresh)"
               >
+                <template #table-busy>
+                  <div class="text-center">
+                    <b-spinner
+                      variant="secondary"
+                      class="align-middle"
+                    />
+                  </div>
+                </template>
                 <template #empty>
                   <empty-message />
                 </template>
