@@ -2,6 +2,11 @@ export default {
   app: {
     welcome: 'Bienvenue sur votre BackOffice',
     loading: 'Chargement de l\'application et de ses modules',
+    description: {
+      post: 'Description des articles',
+      user: 'Description des utilisateurs',
+      comment: 'Description des réactions',
+    },
   },
   fields: {
     title: {

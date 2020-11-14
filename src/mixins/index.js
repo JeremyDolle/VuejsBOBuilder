@@ -6,3 +6,4 @@ export { default as DefaultDataTableEntityMixin } from './DefaultDataTableEntity
 export { default as DefaultEditEntityMixin } from './DefaultEditEntityMixin'
 export { default as SettingsMixin } from './SettingsMixin'
 export { default as PermissionsMixin } from './PermissionsMixin'
+export { default as ConfigMixin } from './ConfigMixin'
