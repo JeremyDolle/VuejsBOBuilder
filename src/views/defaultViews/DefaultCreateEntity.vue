@@ -1,25 +1,27 @@
 <template>
   <b-container :key="`edit-entity-${$route.params.resource}-${$route.params.id}`">
-    <entity-form-generator
-      :fields="entity.schema"
-      :title="$t('pages.create.title', {entity: entity.label})"
-      @submit="createEntity"
-    />
+    <well :title="$t('pages.create.title', {entity: entity.label})">
+      <entity-form-generator
+        :fields="entity.schema"
+        @submit="createEntity"
+      />
+    </well>
   </b-container>
 </template>
 
 <script>
 import { DefaultCreateEntityMixin, PermissionsMixin } from '@/mixins'
 import EntityFormGenerator from '@/components/EntityFormGenerator'
+import Well from '@/components/Well'
 
 export default {
   name: 'DefaultCreateEntity',
-  components: { EntityFormGenerator },
+  components: { Well, EntityFormGenerator },
   mixins: [DefaultCreateEntityMixin, PermissionsMixin],
   props: {
     action: {
       type: String,
-      default: 'Create',
+      default: 'create',
     },
   },
 }

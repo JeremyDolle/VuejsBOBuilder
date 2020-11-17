@@ -13,13 +13,16 @@
         <div v-else-if="isError">
           {{ isError }}
         </div>
-        <entity-form-generator
+        <well
           v-else-if="data"
-          :entity="data[0]"
-          :fields="entity.schema"
           :title="$t('pages.edit.title', {entity: entity.label})"
-          @submit="editEntity($event, data[0]._id)"
-        />
+        >
+          <entity-form-generator
+            :entity="data[0]"
+            :fields="entity.schema"
+            @submit="editEntity($event, data[0]._id)"
+          />
+        </well>
       </template>
     </entity-provider>
   </b-container>
@@ -29,10 +32,11 @@
 import EntityProvider from '@/components/EntityProvider'
 import EntityFormGenerator from '@/components/EntityFormGenerator'
 import { DefaultEditEntityMixin, PermissionsMixin } from '@/mixins'
+import Well from '@/components/Well'
 
 export default {
   name: 'DefaultEditEntity',
-  components: { EntityFormGenerator, EntityProvider },
+  components: { Well, EntityFormGenerator, EntityProvider },
   mixins: [DefaultEditEntityMixin, PermissionsMixin],
   props: {
     action: {

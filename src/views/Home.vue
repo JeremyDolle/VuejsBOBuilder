@@ -8,10 +8,10 @@
       >
         <well class="mb-3">
           <template #header>
-            <h3>
+            <h4>
               <b-icon :icon="entity.icon" />
               {{ entity.label }}
-            </h3>
+            </h4>
           </template>
           <p>{{ entity.description }}</p>
         </well>

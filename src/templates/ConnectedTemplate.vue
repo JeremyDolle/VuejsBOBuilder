@@ -10,6 +10,7 @@
       </div>
       <div class="app-content-container">
         <app-toasts />
+        <app-modals />
         <router-view />
       </div>
     </div>
@@ -20,8 +21,9 @@
 import SidebarMenu from '@/components/SidebarMenu'
 import Realtime from '@/components/Realtime'
 import AppToasts from '@/components/AppToasts'
+import AppModals from '@/components/AppModals'
 export default {
   name: 'ConnectedTemplate',
-  components: { AppToasts, Realtime, SidebarMenu },
+  components: { AppModals, AppToasts, Realtime, SidebarMenu },
 }
 </script>

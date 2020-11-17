@@ -140,8 +140,8 @@
               </b-table>
               <b-pagination
                 v-model="page"
-                :total-rows="total"
-                :per-page="10"
+                :total-rows="total * entities.length"
+                :per-page="entities.length"
                 class="m-1"
                 pills
               />

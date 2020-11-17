@@ -35,7 +35,7 @@ export default (key, apiConfig) => {
         }
 
         const querySearch = search === '' ? querySort : `&search=${search}${querySort}`
-        const url = `${apiConfig.url}/${apiConfig.endpoints.fetchAll.url}?_page=${page}${querySearch}`
+        const url = `${apiConfig.url}/${apiConfig.endpoints.fetchAll.url}?page=${page}${querySearch}`
         const token = rootGetters['auth/getTokenHeader']
         const response = await api.get(url, { headers: { Authorization: token } })
         const { data, total } = handlePagination(response)

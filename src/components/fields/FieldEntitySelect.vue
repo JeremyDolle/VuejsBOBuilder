@@ -1,5 +1,6 @@
 <template>
   <entity-provider
+    v-if="ready"
     :entity="schema.inputType"
     :module="schema.inputType"
   >
@@ -11,7 +12,10 @@
       <div v-else-if="isError">
         {{ isError }}
       </div>
-      <template v-else>
+      <div
+        v-else
+        class="d-flex"
+      >
         <!-- If edit -->
         <entity-provider
           v-if="model[schema.key]"
@@ -53,7 +57,15 @@
           :allow-empty="false"
           @input="updateModelValue($event._id)"
         />
-      </template>
+
+        <!-- Add entity -->
+        <b-button
+          class="ml-1"
+          @click="addEntity"
+        >
+          <b-icon icon="plus" />
+        </b-button>
+      </div>
     </template>
   </entity-provider>
 </template>
@@ -61,10 +73,48 @@
 <script>
 import { abstractField } from 'vue-form-generator'
 import EntityProvider from '@/components/EntityProvider'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'FieldEntitySelect',
   components: { EntityProvider },
   mixins: [abstractField],
+  data () {
+    return {
+      ready: true,
+    }
+  },
+  computed: {
+    entity () {
+      if (!this.entities) {
+        return null
+      }
+      return this.entities.find(item => item.name === this.schema.inputType)
+    },
+    ...mapState('config', ['entities']),
+  },
+  methods: {
+    ...mapActions({
+      addEntity (dispatch) {
+        return dispatch('ui/showModal', {
+          title: 'AJOUT',
+          component: 'EntityFormGenerator',
+          componentProps: {
+            fields: this.entity.schema,
+            onSubmit: this.createEntity,
+          },
+        })
+      },
+    }),
+    ...mapActions({
+      async createEntity (dispatch, form) {
+        const { name } = this.entity
+        this.ready = false
+        await dispatch(`${name}/create_${name}`, form)
+        this.ready = true
+        await dispatch('ui/popModal')
+      },
+    }),
+  },
 }
 </script>

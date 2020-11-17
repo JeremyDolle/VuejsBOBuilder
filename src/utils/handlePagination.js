@@ -6,9 +6,11 @@
  * }
  */
 export default function (response) {
-  const { data, headers: { 'x-total-count': total = 1 } } = response
+  const { data: { data, totalPages: total = 1 } } = response
+  console.log(data,
+    total)
   return {
-    data: data.data,
+    data,
     total,
   }
 }
