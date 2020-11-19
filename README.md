@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="src/assets/images/logo_colored.png" alt="Logo" width="80%">
+    <img src="src/assets/images/logo_colored.png" alt="Logo" width="30%">
 </div>
 
 # VuejsBOBuilder
