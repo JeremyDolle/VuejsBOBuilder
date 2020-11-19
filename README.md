@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="src/assets/images/logo_colored.png" alt="Logo" width="80%">
+</div>
+
 # VuejsBOBuilder
 
 💡 Build a scalable and customisable CRUD Back-Office based on API services with very simple json config. 💡

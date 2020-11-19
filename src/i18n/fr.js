@@ -3,9 +3,9 @@ export default {
     welcome: 'Bienvenue sur votre BackOffice',
     loading: 'Chargement de l\'application et de ses modules',
     description: {
-      post: 'Description des articles',
-      user: 'Description des utilisateurs',
-      comment: 'Description des réactions',
+      post: 'Les articles correspondent aux différentes publications apparaissant sur le site. Vous allez pouvoir créer, éditer, visualiser et supprimer les articles en fonction de vos droits',
+      comment: 'Les reactions sont appliquées à des articles. Vous allez pouvoir créer, éditer, visualiser et supprimer les articles en fonction de vos droits',
+      user: 'Les utilisateurs sont les personnes inscrites sur le site. Vous allez pouvoir créer, éditer, visualiser et supprimer les articles en fonction de vos droits',
     },
   },
   fields: {
