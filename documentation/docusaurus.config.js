@@ -2,7 +2,7 @@ module.exports = {
   title: 'My Site',
   tagline: 'The tagline of my site',
   url: 'https://JeremyDolle.github.com',
-  baseUrl: '/VueBOBuilder',
+  baseUrl: '/vue-bo-builder/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
