@@ -65,6 +65,9 @@ export default {
     list: {
       title: 'Liste des {entity}',
     },
+    view: {
+      title: 'Page de détail des {entity}',
+    },
     create: {
       title: 'Formulaire de création des {entity}',
     },
@@ -100,6 +103,8 @@ export default {
     edit: 'Editer',
     delete: 'Supprimer',
     cancel: 'Annuler',
+    valid: 'Valider',
+    back: 'Retour',
     deleteConfirm: {
       title: 'Confimez-vous la suppression ?',
       description: 'Etes-vous certain de vouloir supprimer cette ligne ? Une fois supprimée, elle ne pourra plus être récupérée.',

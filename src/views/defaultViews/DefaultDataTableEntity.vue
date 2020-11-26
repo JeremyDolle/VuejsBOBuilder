@@ -100,6 +100,25 @@
                 <template #cell(actions)="data">
                   <div class="data-table-actions">
                     <can
+                      action="read"
+                      :resource="$route.params.resource"
+                    >
+                      <template #default="{ allowed }">
+                        <div v-b-tooltip.hover="allowed ? $t('actions.read') : $t('actions.not_allowed')">
+                          <b-link
+                            :disabled="!allowed"
+                            class="data-table-action"
+                            :to="{
+                              name: 'ViewEntity',
+                              params: { resource: $route.params.resource, id: data.item._id }
+                            }"
+                          >
+                            <b-icon icon="eye" />
+                          </b-link>
+                        </div>
+                      </template>
+                    </can>
+                    <can
                       action="update"
                       :resource="$route.params.resource"
                     >

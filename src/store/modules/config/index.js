@@ -7,6 +7,9 @@ export default {
     entities: null,
   },
   getters: {
+    getEntitiesConfig: (state) => {
+      return state.entities
+    },
     getEntitySchemaByName: (state) => (name) => {
       return state.entities.find(entity => entity.name === name).schema
     },

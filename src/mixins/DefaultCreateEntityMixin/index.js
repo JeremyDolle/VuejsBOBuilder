@@ -1,14 +1,15 @@
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   computed: {
     entity () {
-      if (!this.entities) {
+      if (!this.getEntitiesConfig) {
         return null
       }
-      return this.entities.find(item => item.name === this.$route.params.resource)
+      console.log(this.getEntitiesConfig)
+      return this.getEntitiesConfig.find(item => item.name === this.$route.params.resource)
     },
-    ...mapState('config', ['entities']),
+    ...mapGetters('config', ['getEntitiesConfig']),
   },
   methods: {
     ...mapActions({

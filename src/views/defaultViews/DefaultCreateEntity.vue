@@ -1,7 +1,8 @@
 <template>
-  <b-container :key="`edit-entity-${$route.params.resource}-${$route.params.id}`">
+  <b-container :key="`create-entity-${$route.params.resource}`">
     <well :title="$t('pages.create.title', {entity: entity.label})">
       <entity-form-generator
+        :key="`create-entity-${$route.params.resource}-${$route.params.id}`"
         :fields="entity.schema"
         @submit="createEntity"
       />

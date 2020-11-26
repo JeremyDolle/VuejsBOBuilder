@@ -2,6 +2,7 @@
   <vue-tel-input
     v-model="value"
     :valid-characters-only="true"
+    v-bind="schema"
     @validate="validate"
   />
 </template>

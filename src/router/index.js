@@ -7,6 +7,7 @@ import DataTableEntity from '@/views/DataTableEntity'
 import EditEntity from '@/views/EditEntity'
 import CreateEntity from '@/views/CreateEntity'
 import NotFound from '@/views/NotFound'
+import ViewEntity from '@/views/ViewEntity'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     path: '/:resource/list',
     name: 'DataTableEntity',
     component: DataTableEntity,
+  },
+  {
+    path: '/:resource/view/:id',
+    name: 'ViewEntity',
+    component: ViewEntity,
   },
   {
     path: '/:resource/edit/:id',

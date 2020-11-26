@@ -5,7 +5,7 @@
       @mouseleave="show = false"
     >
       <b-overlay
-        :show="show"
+        :show="!schema.disabled && !schema.readonly && show"
         class=" mr-2"
       >
         <template #overlay>
@@ -55,6 +55,7 @@
       class="w-100 mr-3"
       placeholder="Choisissez un fichier"
       browse-text="Rechercher"
+      v-bind="schema"
       @input="update($event)"
     />
   </div>

@@ -55,11 +55,13 @@
           :placeholder="schema.placeholder"
           :options="data"
           :allow-empty="false"
+          v-bind="schema"
           @input="updateModelValue($event._id)"
         />
 
         <!-- Add entity -->
         <b-button
+          v-if="!schema.disabled || !schema.readonly"
           class="ml-1"
           @click="addEntity"
         >

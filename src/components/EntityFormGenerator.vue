@@ -8,10 +8,11 @@
       @validated="onValidated"
     />
     <b-button
+      v-if="!noSubmit"
       type="submit"
       :disabled="!submitEnable"
     >
-      VALIDER
+      {{ $t('actions.valid') }}
     </b-button>
   </form>
 </template>
@@ -31,6 +32,10 @@ export default {
     title: {
       type: String,
       default: '',
+    },
+    noSubmit: {
+      type: Boolean,
+      default: false,
     },
   },
   data () {
