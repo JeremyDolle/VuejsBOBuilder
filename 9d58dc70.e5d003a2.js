@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{80:function(u){u.exports=JSON.parse('{"allTagsPath":"/vue-bo-builder/blog/tags","slug":"docusaurus","name":"docusaurus","count":3,"permalink":"/vue-bo-builder/blog/tags/docusaurus"}')}}]);
