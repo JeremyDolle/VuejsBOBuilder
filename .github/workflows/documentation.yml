@@ -47,7 +47,7 @@ jobs:
           GIT_USER: JeremyDolle
           DEPLOYMENT_BRANCH: gh-pages
         run: |
-          git config --global user.email "actions@gihub.com"
+          git config --global user.email "jeremy.dolle34@gmail.com"
           git config --global user.name "gh-actions"
           cd documentation
           yarn install --frozen-lockfile
