@@ -10,7 +10,7 @@ module.exports = {
   projectName: 'Vue BOBuilder', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Vue BOBuilder',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
