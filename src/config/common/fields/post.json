@@ -1,9 +1,0 @@
-{
-  "key": "postId",
-  "type": "entity-select",
-  "inputType": "post",
-  "convertToString": ["title"],
-  "isRelation": true,
-  "required": true,
-  "validator": "required"
-}
