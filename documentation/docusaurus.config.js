@@ -7,7 +7,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'JeremyDolle', // Usually your GitHub org/user name.
-  projectName: 'Vue BOBuilder', // Usually your repo name.
+  projectName: 'VuejsBOBuilder', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'Vue BOBuilder',
