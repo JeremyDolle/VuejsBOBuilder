@@ -33,7 +33,7 @@ module.exports = {
       style: 'dark',
       logo: {
         alt: 'Vue BOBuilder logo',
-        src: 'img/TOM.png',
+        src: 'img/logo.png',
       },
       copyright: `Copyright © ${new Date().getFullYear()} JeremyDolle, Inc. Built with Docusaurus.`,
     },

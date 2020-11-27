@@ -4,7 +4,7 @@ title: Vue BOBuilder
 ---
 
 <div align="center">
-    <img width="300" height="300" src={require('../assets/logo.svg').default} />
+    <img width="300" height="300" src={require('../assets/logo.png').default} />
 </div>
 
 --- 
