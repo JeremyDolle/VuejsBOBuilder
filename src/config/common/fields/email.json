@@ -1,6 +1,0 @@
-{
-  "key": "email",
-  "inputType": "email",
-  "required": true,
-  "validator": ["email"]
-}
