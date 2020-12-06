@@ -1,0 +1,17 @@
+{
+  "unversionedId": "1_Introduction/1_1_BOBuilder",
+  "id": "1_Introduction/1_1_BOBuilder",
+  "isDocsHomePage": false,
+  "title": "Vue BOBuilder",
+  "description": "---",
+  "source": "@site/docs/1_Introduction/1_1_BOBuilder.md",
+  "slug": "/Introduction",
+  "permalink": "/VuejsBOBuilder/docs/Introduction",
+  "editUrl": "https://github.com/JeremyDolle/VuejsBOBuilder/tree/documentation/documentation/docs/docs/1_Introduction/1_1_BOBuilder.md",
+  "version": "current",
+  "sidebar": "docs",
+  "next": {
+    "title": "Installation",
+    "permalink": "/VuejsBOBuilder/docs/Installation"
+  }
+}

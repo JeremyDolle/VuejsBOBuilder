@@ -1,0 +1,20 @@
+{
+  "unversionedId": "3_Configuration/3_3_Commons",
+  "id": "3_Configuration/3_3_Commons",
+  "isDocsHomePage": false,
+  "title": "Commons",
+  "source": "@site/docs/3_Configuration/3_3_Commons.md",
+  "slug": "/Configuration/Commons",
+  "permalink": "/VuejsBOBuilder/docs/Configuration/Commons",
+  "editUrl": "https://github.com/JeremyDolle/VuejsBOBuilder/tree/documentation/documentation/docs/docs/3_Configuration/3_3_Commons.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Entities",
+    "permalink": "/VuejsBOBuilder/docs/Configuration/Entities"
+  },
+  "next": {
+    "title": "Features",
+    "permalink": "/VuejsBOBuilder/docs/Configuration/Features"
+  }
+}

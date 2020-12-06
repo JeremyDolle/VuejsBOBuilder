@@ -1,0 +1,20 @@
+{
+  "unversionedId": "3_Configuration/3_1_Introduction",
+  "id": "3_Configuration/3_1_Introduction",
+  "isDocsHomePage": false,
+  "title": "Introduction",
+  "source": "@site/docs/3_Configuration/3_1_Introduction.md",
+  "slug": "/Configuration/Introduction",
+  "permalink": "/VuejsBOBuilder/docs/Configuration/Introduction",
+  "editUrl": "https://github.com/JeremyDolle/VuejsBOBuilder/tree/documentation/documentation/docs/docs/3_Configuration/3_1_Introduction.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/VuejsBOBuilder/docs/Installation"
+  },
+  "next": {
+    "title": "Entities",
+    "permalink": "/VuejsBOBuilder/docs/Configuration/Entities"
+  }
+}

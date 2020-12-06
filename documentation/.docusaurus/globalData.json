@@ -1,0 +1,53 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/VuejsBOBuilder/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/VuejsBOBuilder/docs",
+          "mainDocId": "1_Introduction/1_1_BOBuilder",
+          "docs": [
+            {
+              "id": "1_Introduction/1_1_BOBuilder",
+              "path": "/VuejsBOBuilder/docs/Introduction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "2_Getting Started/2_1_Installation",
+              "path": "/VuejsBOBuilder/docs/Installation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "3_Configuration/3_1_Introduction",
+              "path": "/VuejsBOBuilder/docs/Configuration/Introduction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "3_Configuration/3_2_Entities",
+              "path": "/VuejsBOBuilder/docs/Configuration/Entities",
+              "sidebar": "docs"
+            },
+            {
+              "id": "3_Configuration/3_3_Commons",
+              "path": "/VuejsBOBuilder/docs/Configuration/Commons",
+              "sidebar": "docs"
+            },
+            {
+              "id": "3_Configuration/3_4_Features",
+              "path": "/VuejsBOBuilder/docs/Configuration/Features",
+              "sidebar": "docs"
+            },
+            {
+              "id": "4_Guides/4_1_OverrideViews",
+              "path": "/VuejsBOBuilder/docs/Guides/OverrideViews",
+              "sidebar": "docs"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "unversionedId": "2_Getting Started/2_1_Installation",
+  "id": "2_Getting Started/2_1_Installation",
+  "isDocsHomePage": false,
+  "title": "Installation",
+  "source": "@site/docs/2_Getting Started/2_1_Installation.md",
+  "slug": "/Installation",
+  "permalink": "/VuejsBOBuilder/docs/Installation",
+  "editUrl": "https://github.com/JeremyDolle/VuejsBOBuilder/tree/documentation/documentation/docs/docs/2_Getting Started/2_1_Installation.md",
+  "version": "current",
+  "sidebar": "docs",
+  "previous": {
+    "title": "Vue BOBuilder",
+    "permalink": "/VuejsBOBuilder/docs/Introduction"
+  },
+  "next": {
+    "title": "Introduction",
+    "permalink": "/VuejsBOBuilder/docs/Configuration/Introduction"
+  }
+}
