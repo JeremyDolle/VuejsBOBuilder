@@ -1,0 +1,36 @@
+.not-found {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .not-found-status {
+    font-size: 7rem;
+    display: flex;
+    font-weight: 900;
+    color: $gray-400;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin: 0 5px;
+      height: 100%;
+      animation-duration: 2s;
+      animation-name: ghost;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+  }
+  .not-found-text {
+    color: $gray-400;
+  }
+}
+
+@keyframes ghost {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
