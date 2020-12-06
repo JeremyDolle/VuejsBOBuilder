@@ -1,0 +1,8 @@
+{
+  "icon": "chat",
+  "schema": [
+    "name",
+    "post",
+    "body"
+  ]
+}

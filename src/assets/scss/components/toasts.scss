@@ -1,0 +1,9 @@
+@each $index, $color in $theme-colors{
+  .toast-header-#{$index} {
+    background-color: $color;
+    color: $white;
+  }
+}
+.toast {
+  backdrop-filter: blur(5px);
+}

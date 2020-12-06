@@ -1,0 +1,7 @@
+{
+  "icon": "bookmarks",
+  "schema": [
+    "title",
+    "body"
+  ]
+}

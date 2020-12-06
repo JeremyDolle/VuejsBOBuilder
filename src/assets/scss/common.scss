@@ -1,0 +1,32 @@
+body {
+  height: 100vh;
+  background-color: $gray-100;
+}
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  .app-container {
+    width: $app-container-width;
+    height: 100vh;
+    padding: 20px;
+    background-color: $gray-100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .app-top-bar {
+    height: $app-top-bar;
+    padding: 20px 0;
+  }
+  .app-content-container {
+    height: $app-content-container-height;
+    width: 100%;
+  }
+  .btn {
+    color: $white;
+  }
+  .fit-cover {
+    object-fit: cover;
+  }
+}

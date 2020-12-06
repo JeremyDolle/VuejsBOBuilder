@@ -1,0 +1,10 @@
+{
+  "name": "BOBuilder",
+  "logos": {
+    "colored": "logo_colored.png",
+    "light": "logo_colored.png",
+    "dark": "logo_colored.png",
+    "notFound": "ghost.svg",
+    "empty": "cactus.svg"
+  }
+}

@@ -1,4 +1,0 @@
----
-slug: /Installation
-title: Installation
----
