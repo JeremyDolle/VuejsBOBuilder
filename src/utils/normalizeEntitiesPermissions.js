@@ -6,7 +6,7 @@ export default function (configName, defaultConfig) {
       read: [`read_${configName}s`],
       update: [`update_${configName}s`],
       delete: [`delete_${configName}s`],
-      ...defaultConfig,
+      ...defaultConfig.needPermissions || {},
     },
   }
 }
