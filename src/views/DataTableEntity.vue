@@ -1,17 +1,21 @@
 <template>
-  <component :is="component" />
+  <component v-if="componentIsReady" :is="component" />
 </template>
 
 <script>
+import useExtendedView from '@/use/useExtendedView'
+import DefaultDataTableEntity from '@/views/defaultViews/DefaultDataTableEntity'
+
 export default {
   name: 'DataTableEntity',
-  computed: {
-    component () {
-      const { resource } = this.$route.params
-      return () => import('@/views/extendedViews/' + resource + '/DataTableEntity.vue').catch((e) => {
-        return import('@/views/defaultViews/DefaultDataTableEntity.vue')
-      })
-    },
+  components: { DefaultDataTableEntity },
+  setup () {
+    const { componentIsReady, component } = useExtendedView('DataTableEntity')
+
+    return {
+      componentIsReady,
+      component,
+    }
   },
 }
 </script>

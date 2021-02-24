@@ -2,7 +2,7 @@
   <b-container class="home h-100">
     <b-row>
       <b-col
-        v-for="(entity, index) in config.entities"
+        v-for="(entity, index) in entitiesConfig"
         :key="index"
         cols="6"
       >
@@ -22,10 +22,16 @@
 
 <script>
 import Well from '@/components/Well'
-import { ConfigMixin } from '@/mixins'
+import useAppConfig from '@/use/useAppConfig'
 export default {
   name: 'Home',
   components: { Well },
-  mixins: [ConfigMixin],
+  setup () {
+    const { entitiesConfig } = useAppConfig()
+
+    return {
+      entitiesConfig,
+    }
+  },
 }
 </script>

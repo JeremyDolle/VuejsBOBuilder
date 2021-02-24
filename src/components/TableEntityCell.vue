@@ -37,6 +37,8 @@
 
 <script>
 import EntityProvider from '@/components/EntityProvider'
+import { computed } from '@vue/reactivity'
+
 export default {
   name: 'TableEntityCell',
   components: { EntityProvider },
@@ -50,21 +52,28 @@ export default {
       required: true,
     },
   },
-  computed: {
-    isRelation () {
-      return this.resource.isRelation
-    },
-    isImage () {
-      return this.resource.isImage
-    },
-    resource () {
-      return this.schema.find(field => {
-        return field.key === this.field.field.key
+  setup (props) {
+    const isRelation = computed(() => {
+      return props.resource.isRelation
+    })
+    const isImage = computed(() => {
+      return props.resource.isImage
+    })
+    const resource = computed(() => {
+      return props.schema.find(field => {
+        return field.key === props.field.field.key
       })
-    },
-    id () {
-      return this.field.value
-    },
+    })
+    const id = computed(() => {
+      return props.field.value
+    })
+
+    return {
+      isRelation,
+      isImage,
+      resource,
+      id,
+    }
   },
 }
 </script>

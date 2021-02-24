@@ -8,10 +8,16 @@
 </template>
 
 <script>
-import { SettingsMixin } from '@/mixins'
+import { useAppSettings } from '@/use'
 
 export default {
   name: 'EmptyMessage',
-  mixins: [SettingsMixin],
+  setup () {
+    const { emptyLogo } = useAppSettings()
+
+    return {
+      emptyLogo,
+    }
+  },
 }
 </script>

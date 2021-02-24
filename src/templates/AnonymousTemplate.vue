@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="h-100"
+    class="h-100 anonymous"
   >
     <router-view />
   </div>

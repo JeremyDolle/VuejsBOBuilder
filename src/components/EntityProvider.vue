@@ -1,17 +1,48 @@
 <script>
-import { EntityProviderMixin } from '@/mixins'
+import { useFetchEntities } from '@/use/entities'
 
 export default {
   name: 'EntityProvider',
-  mixins: [EntityProviderMixin],
-  render () {
-    return this.$scopedSlots.default({
-      data: this.data,
-      isLoading: this.isLoading,
-      isError: this.isError,
-      total: this.total,
-      setSearch: this.setSearch,
-      refresh: this.fetch,
+  props: {
+    entity: {
+      type: String,
+      required: true,
+    },
+    module: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: null,
+    },
+    convertToString: {
+      type: [Array],
+      default: null,
+    },
+    page: {
+      type: Number,
+      default: 1,
+    },
+  },
+  setup (props, context) {
+    const {
+      data,
+      isLoading,
+      isError,
+      total,
+      setSearch,
+      refresh,
+    } = useFetchEntities(props)
+
+    return () => context.slots.default({
+      data: data.value,
+      isLoading: isLoading.value,
+      isError: isError.value,
+      total: total.value,
+      setSearch,
+      refresh,
     })
   },
 }

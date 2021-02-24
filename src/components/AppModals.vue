@@ -1,8 +1,7 @@
 <template>
   <div>
-    <template v-for="modal in modals">
+    <template v-for="modal in modals" :key="modal.key">
       <b-modal
-        :key="modal.key"
         visible
       >
         <component
@@ -41,17 +40,22 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { useStore } from 'vuex'
 import EntityFormGenerator from '@/components/EntityFormGenerator'
+import { computed } from '@vue/reactivity'
 
 export default {
   name: 'AppModals',
   components: { EntityFormGenerator },
-  computed: {
-    ...mapState('ui', ['modals']),
-  },
-  methods: {
-    ...mapActions('ui', ['popModals']),
+  setup () {
+    const store = useStore()
+    const modals = computed(() => store.state.ui.modals)
+    const popModals = () => store.dispatch('ui/popModals')
+
+    return {
+      modals,
+      popModals,
+    }
   },
 }
 </script>

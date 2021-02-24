@@ -8,16 +8,17 @@
           name="data-table--well-header"
           v-bind="slotDataTableWellHeader"
         >
-          <span>{{ $t('pages.list.title', {entity: entity.label}) }}</span>
+          <span>{{ t('pages.list.title', {entity: entity.label}) }}</span>
           <can
             action="create"
-            :resource="$route.params.resource"
+            :resource="route.params.resource"
           >
             <template #default="{ allowed }">
-              <div v-b-tooltip.hover="allowed ? $t('actions.create') : $t('actions.not_allowed')">
+<!--              <div v-b-tooltip.hover="allowed ? t('actions.create') : t('actions.not_allowed')">-->
+              <div>
                 <b-link
                   :disabled="!allowed"
-                  :to="{ name: 'CreateEntity', params: { resource: $route.params.resource } }"
+                  :to="{ name: 'CreateEntity', params: { resource: route.params.resource } }"
                 >
                   <b-icon
                     icon="plus-circle"
@@ -74,8 +75,8 @@
                 :fields="[...entity.schema.map(({key, label}) => ({key, label, sortable: true})), 'actions']"
                 class="h-100"
                 responsive
-                :sort-by.sync="sortBy"
-                :sort-desc.sync="sortDesc"
+                v-model:sort-by="sortBy"
+                v-model:sort-desc="sortDesc"
                 :busy="isLoading"
                 @sort-changed="setSort($event, refresh)"
               >
@@ -101,16 +102,16 @@
                   <div class="data-table-actions">
                     <can
                       action="read"
-                      :resource="$route.params.resource"
+                      :resource="route.params.resource"
                     >
                       <template #default="{ allowed }">
-                        <div v-b-tooltip.hover="allowed ? $t('actions.read') : $t('actions.not_allowed')">
+                        <div v-b-tooltip.hover="allowed ? t('actions.read') : t('actions.not_allowed')">
                           <b-link
                             :disabled="!allowed"
                             class="data-table-action"
                             :to="{
                               name: 'ViewEntity',
-                              params: { resource: $route.params.resource, id: data.item._id }
+                              params: { resource: route.params.resource, id: data.item._id }
                             }"
                           >
                             <b-icon icon="eye" />
@@ -120,16 +121,16 @@
                     </can>
                     <can
                       action="update"
-                      :resource="$route.params.resource"
+                      :resource="route.params.resource"
                     >
                       <template #default="{ allowed }">
-                        <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
+                        <div v-b-tooltip.hover="allowed ? t('actions.edit') : t('actions.not_allowed')">
                           <b-link
                             :disabled="!allowed"
                             class="data-table-action"
                             :to="{
                               name: 'EditEntity',
-                              params: { resource: $route.params.resource, id: data.item._id }
+                              params: { resource: route.params.resource, id: data.item._id }
                             }"
                           >
                             <b-icon icon="pencil" />
@@ -139,10 +140,10 @@
                     </can>
                     <can
                       action="delete"
-                      :resource="$route.params.resource"
+                      :resource="route.params.resource"
                     >
                       <template #default="{ allowed }">
-                        <div v-b-tooltip.hover="allowed ? $t('actions.edit') : $t('actions.not_allowed')">
+                        <div v-b-tooltip.hover="allowed ? t('actions.edit') : t('actions.not_allowed')">
                           <b-link
                             :disabled="!allowed"
                             class="data-table-action"
@@ -177,19 +178,43 @@
 import EntityProvider from '@/components/EntityProvider'
 import Well from '@/components/Well'
 import TableEntityCell from '@/components/TableEntityCell'
-import { DefaultDataTableEntityMixin, PermissionsMixin } from '@/mixins'
 import EmptyMessage from '@/components/EmptyMessage'
 import Can from '@/components/Can'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import usePermissions from '@/use/usePermissions'
+import useDataTableEntity from '@/use/entities/useDataTableEntity'
 
 export default {
   name: 'DefaultDataTableEntity',
   components: { Can, EmptyMessage, Well, EntityProvider, TableEntityCell },
-  mixins: [DefaultDataTableEntityMixin, PermissionsMixin],
   props: {
     action: {
       type: String,
       default: 'read',
     },
+  },
+  setup (props) {
+    const route = useRoute()
+    const { t } = useI18n()
+    usePermissions(props.action)
+    const {
+      page, sortBy, sortDesc, entity, slotDataTableWellHeader, search, deleteEntity, setSearch, setSort,
+    } = useDataTableEntity()
+
+    return {
+      route,
+      t,
+      page,
+      sortBy,
+      sortDesc,
+      entity,
+      slotDataTableWellHeader,
+      search,
+      deleteEntity,
+      setSearch,
+      setSort,
+    }
   },
 }
 </script>

@@ -4,20 +4,20 @@
       class="logo"
       :src="coloredLogo"
     />
-    <well :title="$t('app.welcome')">
+    <well :title="t('app.welcome')">
       <b-input
         v-model="form.email"
-        :placeholder="$t('fields.email.placeholder')"
+        :placeholder="t('fields.email.placeholder')"
         class="mb-3"
       />
       <b-input
         v-model="form.password"
-        :placeholder="$t('fields.password.placeholder')"
+        :placeholder="t('fields.password.placeholder')"
         class="mb-3"
         type="password"
       />
-      <b-button @click="submit">
-        {{ $t('actions.connect') }}
+      <b-button @click="login">
+        {{ t('actions.connect') }}
       </b-button>
     </well>
   </div>
@@ -25,11 +25,24 @@
 
 <script>
 import Well from '@/components/Well'
-import { AuthMixin, SettingsMixin } from '@/mixins'
+import { useI18n } from 'vue-i18n'
+import useAppSettings from '@/use/useAppSettings'
+import useAuthLogin from '@/use/auth/useAuthLogin'
 
 export default {
   name: 'Login',
   components: { Well },
-  mixins: [AuthMixin, SettingsMixin],
+  setup () {
+    const { t } = useI18n()
+    const { coloredLogo } = useAppSettings()
+    const { login, form } = useAuthLogin()
+
+    return {
+      coloredLogo,
+      form,
+      login,
+      t,
+    }
+  },
 }
 </script>

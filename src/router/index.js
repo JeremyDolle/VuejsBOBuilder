@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import navigationGuards from './navigationGuards'
@@ -8,8 +7,6 @@ import EditEntity from '@/views/EditEntity'
 import CreateEntity from '@/views/CreateEntity'
 import NotFound from '@/views/NotFound'
 import ViewEntity from '@/views/ViewEntity'
-
-Vue.use(VueRouter)
 
 const routes = [
   {
@@ -44,14 +41,14 @@ const routes = [
   },
   // ADD Route above
   {
-    path: '/*',
+    path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound,
   },
 ]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 })
 

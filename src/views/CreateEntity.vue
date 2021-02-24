@@ -3,15 +3,16 @@
 </template>
 
 <script>
+import useExtendedView from '@/use/useExtendedView'
+
 export default {
   name: 'CreateEntity',
-  computed: {
-    component () {
-      const { resource } = this.$route.params
-      return () => import('@/views/extendedViews/' + resource + '/CreateEntity.vue').catch((e) => {
-        return import('@/views/defaultViews/DefaultCreateEntity.vue')
-      })
-    },
+  setup () {
+    const { component } = useExtendedView('CreateEntity')
+
+    return {
+      component,
+    }
   },
 }
 </script>

@@ -6,16 +6,25 @@
       4
     </div>
     <div class="not-found-text">
-      {{ $t('pages.notFound.title') }}
+      {{ t('pages.notFound.title') }}
     </div>
   </div>
 </template>
 
 <script>
-import { SettingsMixin } from '@/mixins'
+import { useI18n } from 'vue-i18n'
+import useAppSettings from '@/use/useAppSettings'
 
 export default {
   name: 'NotFound',
-  mixins: [SettingsMixin],
+  setup () {
+    const { t } = useI18n()
+    const { notFoundLogo } = useAppSettings()
+
+    return {
+      t,
+      notFoundLogo,
+    }
+  },
 }
 </script>

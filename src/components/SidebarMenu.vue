@@ -9,11 +9,11 @@
       </router-link>
     </b-list-group-item>
 
-    <b-list-group-item :class="['side-bar-menu--item', { active: $route.name === 'Home' }]">
+    <b-list-group-item :class="['side-bar-menu--item', { active: route.name === 'Home' }]">
       <router-link to="/">
         <div class="side-bar-menu-item--icon">
           <b-icon
-            :icon="$route.name === 'Home' ? 'grid1x2-fill' : 'grid1x2'"
+            :icon="route.name === 'Home' ? 'grid1x2-fill' : 'grid1x2'"
             class="icon"
           />
         </div>
@@ -23,9 +23,8 @@
       </router-link>
     </b-list-group-item>
 
-    <template v-for="entity in entities">
+    <template v-for="entity in entitiesConfig" :key="entity.name">
       <can
-        :key="entity.name"
         action="read"
         :resource="entity.name"
       >
@@ -64,19 +63,34 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { AuthMixin, SettingsMixin } from '@/mixins'
+import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+import { computed } from '@vue/reactivity'
+import { useAppConfig, useAppSettings } from '@/use'
 import Can from '@/components/Can'
 
 export default {
   name: 'SidebarMenu',
   components: { Can },
-  mixins: [SettingsMixin, AuthMixin],
-  computed: {
-    ...mapState('config', ['entities']),
-    resource () {
-      return this.$route.params.resource
-    },
+  setup () {
+    const store = useStore()
+    const route = useRoute()
+    const { entitiesConfig } = useAppConfig()
+    const { lightLogo, applicationName } = useAppSettings()
+    const resource = computed(() => route.params.resource)
+
+    const logout = () => {
+      store.dispatch('auth/logout')
+    }
+
+    return {
+      applicationName,
+      route,
+      entitiesConfig,
+      lightLogo,
+      resource,
+      logout,
+    }
   },
 }
 </script>

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <template v-for="toast in toasts">
+    <template v-for="toast in toasts" :key="toast.key">
       <b-toast
-        :key="toast.key"
         :header-class="`toast-header-${toast.variant}`"
         visible
         show
@@ -31,15 +30,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { useStore } from 'vuex'
+import { computed } from '@vue/reactivity'
 
 export default {
   name: 'AppToasts',
-  computed: {
-    ...mapState('ui', ['toasts']),
-  },
-  methods: {
-    ...mapActions('ui', ['popToast']),
+  setup () {
+    const store = useStore()
+    const toasts = computed(() => store.state.ui.modals)
+    const popToast = () => store.dispatch('ui/popModals')
+
+    return {
+      toasts,
+      popToast,
+    }
   },
 }
 </script>

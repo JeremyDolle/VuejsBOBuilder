@@ -5,8 +5,8 @@ export default function (field) {
     model: field.key,
     type: 'input',
     inputType: 'text',
-    label: i18n.t(`fields.${field.key}.label`),
-    placeholder: i18n.t(`fields.${field.key}.placeholder`),
+    label: i18n.global.t(`fields.${field.key}.label`),
+    placeholder: i18n.global.t(`fields.${field.key}.placeholder`),
     ...field,
   }
 }

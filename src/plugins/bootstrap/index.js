@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import {
   ButtonPlugin,
   NavbarPlugin,
@@ -20,21 +19,23 @@ import {
   InputGroupPlugin,
 } from 'bootstrap-vue'
 
-Vue.use(ButtonPlugin)
-Vue.use(NavbarPlugin)
-Vue.use(LayoutPlugin)
-Vue.use(SidebarPlugin)
-Vue.use(ListGroupPlugin)
-Vue.use(TablePlugin)
-Vue.use(IconsPlugin)
-Vue.use(LinkPlugin)
-Vue.use(SpinnerPlugin)
-Vue.use(FormInputPlugin)
-Vue.use(ImagePlugin)
-Vue.use(ToastPlugin)
-Vue.use(ModalPlugin)
-Vue.use(PaginationPlugin)
-Vue.use(VBTooltipPlugin)
-Vue.use(FormFilePlugin)
-Vue.use(OverlayPlugin)
-Vue.use(InputGroupPlugin)
+export default function registerB (app) {
+  app.use(ButtonPlugin)
+  app.use(NavbarPlugin)
+  app.use(LayoutPlugin)
+  app.use(SidebarPlugin)
+  app.use(ListGroupPlugin)
+  app.use(TablePlugin)
+  app.use(IconsPlugin)
+  app.use(LinkPlugin)
+  app.use(SpinnerPlugin)
+  app.use(FormInputPlugin)
+  app.use(ImagePlugin)
+  app.use(ToastPlugin)
+  app.use(ModalPlugin)
+  app.use(PaginationPlugin)
+  app.use(VBTooltipPlugin)
+  app.use(FormFilePlugin)
+  app.use(OverlayPlugin)
+  app.use(InputGroupPlugin)
+}

@@ -5,7 +5,8 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/recommended',
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
     'standard',
   ],
   globals: {
@@ -14,8 +15,6 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint',
-    ecmaVersion: 2018,
-    sourceType: 'module',
   },
   plugins: [
     'vue',

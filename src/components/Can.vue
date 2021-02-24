@@ -1,5 +1,7 @@
 <script>
-import { mapState } from 'vuex'
+import { useStore } from 'vuex'
+import { useAppConfig } from '@/use'
+import { computed } from '@vue/reactivity'
 
 export default {
   name: 'Can',
@@ -13,20 +15,25 @@ export default {
       required: true,
     },
   },
-  computed: {
-    ...mapState({ config (state) { return { ...state.config.entities.find(({ name }) => name === this.resource) } } }),
-    ...mapState({ me (state) { return { ...state.auth.me } } }),
-    allowed () {
-      if (!this.config) {
+  setup (props, context) {
+    const store = useStore()
+    const { entitiesConfig } = useAppConfig()
+    const me = computed(() => store.state.auth.me)
+
+    const entityConfig = computed(() => {
+      return entitiesConfig.value.find(({ name }) => name === props.resource)
+    })
+
+    const allowed = computed(() => {
+      if (!entityConfig.value) {
         return false
       }
-      return this.config.needPermissions[this.action]
-        .every(permission => (this.me.permissions || []).includes(permission))
-    },
-  },
-  render () {
-    return this.$scopedSlots.default({
-      allowed: this.allowed,
+      return entityConfig.value.needPermissions[props.action]
+        .every(permission => (me.value.permissions || []).includes(permission))
+    })
+
+    return () => context.slots.default({
+      allowed: allowed.value,
     })
   },
 }
