@@ -12,9 +12,9 @@ $gray-300: #dee2e6 !default;
 //$gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 //$gray-600: #6c757d !default;
-//$gray-700: #495057 !default;
-//$gray-800: #343a40 !default;
-//$gray-900: #212529 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
 //$black:    #000 !default;
 //
 //$grays: () !default;
@@ -286,7 +286,7 @@ $ternary:       #3D8C86 !default;
 //$font-family-base:            $font-family-sans-serif !default;
 //// stylelint-enable value-keyword-case
 //
-//$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base:              1.1rem !default; // Assumes the browser default, typically `16px`
 //$font-size-lg:                $font-size-base * 1.25 !default;
 //$font-size-sm:                $font-size-base * .875 !default;
 //
@@ -1150,17 +1150,20 @@ $ternary:       #3D8C86 !default;
 
 ////////////////////// CUSTOM /////////////////////////////////////////////
 // APP
-$app-top-bar:                         50px;
+$app-background:                      linear-gradient(to right bottom, #708fe8, #7b88e7, #8881e5, #9578e1, #a26fdc, #b166d2, #bf5dc6, #ca53b9, #d54ba5, #db4691, #de447e, #dd456b);
+$app-top-bar:                         70px;
 $app-content-container-height:        calc(100vh - #{$app-top-bar} - 40px);
-$app-sidebar-width:                   80px;
+$app-sidebar-width:                   200px;
 $app-container-width:                 calc(100vw - #{$app-sidebar-width});
+$app-container-opacity:               0.7;
 //WELL
 $well-default-padding:                20px;
 //REALTIME
-$realtime-color:                      $gray-500;
+$realtime-color:                      $gray-800;
 //SIDEBAR
 $sidebar-radius:                      0 50px 0 0;
-$sidebar-background:                  linear-gradient(to bottom, $secondary 0%, $primary 100%);
+$sidebar-background:                  transparent;
+//$sidebar-background:                  linear-gradient(to bottom, $secondary 0%, $primary 100%);
 $sidebar-item-color:                  $white;
-$sidebar-hover-bg:                    $ternary;
-$sidebar-hover-color:                 $white;
+$sidebar-hover-bg:                    $white;
+$sidebar-hover-color:                 $gray-800;

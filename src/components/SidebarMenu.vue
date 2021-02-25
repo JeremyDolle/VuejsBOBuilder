@@ -11,12 +11,12 @@
 
     <b-list-group-item :class="['side-bar-menu--item', { active: route.name === 'Home' }]">
       <router-link to="/">
-        <div class="side-bar-menu-item--icon">
+        <span class="side-bar-menu-item--icon">
           <b-icon
             :icon="route.name === 'Home' ? 'grid1x2-fill' : 'grid1x2'"
             class="icon"
           />
-        </div>
+        </span>
         <small class="side-bar-menu-item--text">
           Acceuil
         </small>

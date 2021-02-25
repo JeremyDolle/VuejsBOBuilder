@@ -4,14 +4,14 @@
       <b-col
         v-for="(entity, index) in entitiesConfig"
         :key="index"
-        cols="6"
+        cols="4"
       >
         <well class="mb-3">
           <template #header>
-            <h4>
+            <p class="m-0">
               <b-icon :icon="entity.icon" />
               {{ entity.label }}
-            </h4>
+            </p>
           </template>
           <p>{{ entity.description }}</p>
         </well>

@@ -1,3 +1,5 @@
 {
-  "clock": true
+  "clock": true,
+  "quick_access": true,
+  "profile": true
 }

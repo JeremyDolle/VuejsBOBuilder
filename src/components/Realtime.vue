@@ -3,14 +3,14 @@
     v-if="clockFeatureIsAvailable"
     class="realtime"
   >
-    <span class="realtime-hours"> {{ hours }} </span>
-    <span class="realtime-day"> {{ day }} </span>
+    <div class="realtime-hours"> {{ hours }} </div>
+    <div class="realtime-day"> {{ day }} </div>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
-import { reactive } from '@vue/reactivity'
+import { reactive, toRefs } from '@vue/reactivity'
 import { onMounted, onUnmounted } from '@vue/runtime-core'
 import { useFeatures } from '@/use'
 
@@ -36,7 +36,10 @@ export default {
       }
     })
 
-    return { clockFeatureIsAvailable }
+    return {
+      ...toRefs(data),
+      clockFeatureIsAvailable,
+    }
   },
 }
 </script>

@@ -1,7 +1,12 @@
 .realtime {
   color: $realtime-color;
   .realtime-hours {
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 2rem;
   }
-  .realtime-day {}
+  .realtime-day {
+    font-weight: 400;
+    font-size: 0.7rem;
+    margin-top: -10px;
+  }
 }

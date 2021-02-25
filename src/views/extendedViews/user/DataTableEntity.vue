@@ -9,7 +9,7 @@
 <script>
 import DefaultDataTableEntity from '@/views/defaultViews/DefaultDataTableEntity'
 export default {
-  name: 'DataTableEntity',
+  name: 'UserDataTableEntity',
   components: { DefaultDataTableEntity },
 }
 </script>

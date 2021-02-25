@@ -1,17 +1,21 @@
-import { reactive, toRefs } from '@vue/reactivity'
+import { computed, reactive, toRefs } from '@vue/reactivity'
 import { useRoute } from 'vue-router'
-import { onMounted } from '@vue/runtime-core'
+import { watch } from '@vue/runtime-core'
 
 export default function useExtendedView (baseViewComponentName) {
   const route = useRoute()
+
+  const resource = computed(() => route.params.resource)
+
   const data = reactive({
     componentIsReady: false,
     component: null,
   })
 
-  const loadComponent = async () => {
+  const loadComponent = async (resource) => {
+    data.componentIsReady = false
     try {
-      data.component = await import('@/views/extendedViews/' + route.params.resource + '/' + baseViewComponentName + '.vue')
+      data.component = await import('@/views/extendedViews/' + resource + '/' + baseViewComponentName + '.vue')
     } catch (e) {
       data.component = await import('@/views/defaultViews/Default' + baseViewComponentName + '.vue')
     }
@@ -19,7 +23,9 @@ export default function useExtendedView (baseViewComponentName) {
     data.componentIsReady = true
   }
 
-  onMounted(() => loadComponent())
+  watch(resource, (newValue) => {
+    loadComponent(newValue)
+  }, { immediate: true })
 
   return { ...toRefs(data) }
 }

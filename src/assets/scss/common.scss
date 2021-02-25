@@ -1,4 +1,5 @@
 body {
+  font-family: 'Open Sans', sans-serif;
   height: 100vh;
   background-color: $gray-100;
 }
@@ -6,18 +7,21 @@ body {
 #app {
   display: flex;
   flex-wrap: wrap;
+  background-image: $app-background;
   .app-container {
+    background-color: rgba( 255, 255, 255, $app-container-opacity );
+    backdrop-filter: blur( 8.0px );
+    -webkit-backdrop-filter: blur( 8.0px );
+    border-radius: 20px 0 0 20px;
     width: $app-container-width;
     height: 100vh;
-    padding: 20px;
-    background-color: $gray-100;
+    padding: 20px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .app-top-bar {
     height: $app-top-bar;
-    padding: 20px 0;
   }
   .app-content-container {
     height: $app-content-container-height;
